@@ -1,0 +1,18 @@
+{
+	"cover_foregrip_small_standard": {
+		"modName": "cover_foregrip_small_standard",
+		"prettyName": "Small Accent",
+		"modType": "cover",
+		"img_url": "models/mods/cover/cover_foregrip_small_standard_",
+		"colors": ["brass", "black"],
+		"parts": ["foregrip_short_blank"]
+	},
+	"hiltcap_small": {
+		"modName": "hiltcap_small",
+		"prettyName": "Small Hiltcap",
+		"modType": "hiltcap",
+		"img_url": "models/mods/hiltcap/hiltcap_small_",
+		"colors": ["silver"],
+		"parts": ["emitter_taper"]
+	}
+}
