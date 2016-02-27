@@ -34,6 +34,11 @@ jQuery(document).ready(function($){
 			// -------------------------------------------------------------------------------------------------------------------------
 			function Initializer () {
 				// Initialize list with all possible parts
+				var preloadAssets = (function() {
+					$("#ls_preload_assets").append("<img class='ls_preload_img_loadicon' src='assets/loadicon.gif'>");
+					$("#ls_preload_assets").append("<img class='ls_preload_img_background' src='assets/blueprint.jpg'>");
+				})();
+				
 				this.allParts = (function () {
 			  	var json_data = null;
 			    
@@ -117,18 +122,44 @@ jQuery(document).ready(function($){
 				})();	
 				
 				this.colors = {
-					blue: "#0A8DFF",
-					red: "#FF0808",
-					green: "#2AD444",
-					yellow: "#FFDD00",
-					amber: "#FF8800",
-					cyan: "#00FFD0",
-					violet: "#F200FF",
+					blue: "#047CB6",
+					red: "#D40F0F",
+					green: "#00C33E",
+					yellow: "#F9B000",
+					amber: "#F95800",
+					cyan: "#00DFFF",
+					violet: "#F22ECC",
 					white: "#FFFFFF",
 					black: "#242424",
 					silver: "#CCCCCC",
-					brass: "#F0C03C"
+					brass: "#F0C03C",
+					chrome: "#9E9E9E",
+					chrome_black: "#4D4D4D"
 				}	
+				
+				var loadingScreen = (function() {
+					$("#ls_config").append("<div id='ls_loadingscreen'><div id=ls_loadingscreen_panel><div id='ls_loadingscreen_icon'></div><h1 id='ls_loadingscreen_text'>Loading assets...</h1></div></div>");
+					
+					$(window).on("load", function() {
+						console.log("Loaded!");
+		  			$("#ls_loadingscreen").remove();
+					}).each(function() {
+		  			if(this.complete) $(this).load();
+					});
+					
+					
+					/* 
+						$("#ls_config").append("<div id='ls_loadingscreen'><div id='ls_loadingscreen_panel'></div></div>");
+						$("#ls_loadingscreen_panel").append("<div id='ls_loadingscreen_title'>Unofficial OTS saber configuration tool</div>");
+							$("#ls_loadingscreen_panel").append("<div id='ls_loadingscreen_textcontainer'></div>"),
+							$("#ls_loadingscreen_textcontainer").append("<div class='ls_loadingscreen_text'>This tool allows you to build the saber of your dreams from parts of the HCCLS OTS line.</div>");
+							$("#ls_loadingscreen_textcontainer").append("<div class='ls_loadingscreen_text'>Please note that this is a pure fan project and is in no way directly associated with Ken Hampton or HHCLS.</div>");
+							$("#ls_loadingscreen_textcontainer").append("<div class='ls_loadingscreen_text'>Also note that while all parts have been hand-drawn with utmost care, there may be some small inaccuracies in size as the official dimensions are not yet publicly available.</div>");
+							$("#ls_loadingscreen_textcontainer").append("<div class='ls_loadingscreen_text'>If you're ready to get started, click on any of the Plus-Symbols.</div>");
+						$("#ls_loadingscreen_panel").append("<div id='ls_loadingscreen_icon'></div>");
+						$("#ls_loadingscreen_panel").append("<div id='ls_loadingscreen_button'></div>");						
+					*/
+				})();
 				
 				var centerBuildContainer = (function() {
 					var canvasHeight = $("#ls_canvas").height();
@@ -486,15 +517,14 @@ jQuery(document).ready(function($){
 							ui.mod.startConfig($(this).attr("id"));
 						});
 					}
-					
-					// Position mod
-					if (part.modAttachment == "left") {
-						$("#" + part.mod.id).css("left", part.modOffset*ui.getZoom());
-					}
-					if (part.modAttachment == "right") {
-						$("#" + part.mod.id).css("right", part.modOffset*ui.getZoom());
-					}	
+				}				
+				// Position mod
+				if (part.modAttachment == "left") {
+					$("#" + part.mod.id).css("left", part.modOffset*ui.getZoom());
 				}
+				if (part.modAttachment == "right") {
+					$("#" + part.mod.id).css("right", part.modOffset*ui.getZoom());
+				}	
 			}
 			
 			Painter.prototype.removeImage = function (part, side) {	
@@ -1196,9 +1226,9 @@ jQuery(document).ready(function($){
 			// $('#ls_paint_container').mousedown(handle_mousedown); // Disable own implementation
 			$('#ls_paint_container #ls_build_container').draggable(); // Use JQuery UI implementation
 			
-			// Listen for mousewheel event
-			$("#ls_canvas").bind('mousewheel DOMMouseScroll', function(e){
-				if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) { // up
+			// Listen for mousewheel event, uses jquery mousewheel plugin
+			$("#ls_paint_container").bind('mousewheel', function(e){
+				if (e.deltaY > 0) { // up
 			        painter.changeZoom("in");
 				}
 				else { // down
@@ -1210,6 +1240,7 @@ jQuery(document).ready(function($){
 			// Subclass for selecting parts
 			// ------------------------------------------------------
 			function User_Interface_Selection () {
+				this.selectionActive = false;
 				this.side = null;
 				this.qualifiedParts = null;
 				this.selectedPart;
@@ -1217,6 +1248,7 @@ jQuery(document).ready(function($){
 			
 			// Functions for selecting a part
 			User_Interface_Selection.prototype.showPartSelection = function (side) {
+				this.selectionActive = true;
 				ui.disableButtons();
 				$("#ls_modbutton").hide();
 				this.side = side;
@@ -1258,6 +1290,7 @@ jQuery(document).ready(function($){
 				$(".ls_select_exit").on("click", function() {
 					ui.select.closePartSelection();
 				});	
+
 				
 				// Find qualified parts
 				if (this.side === "front") {
@@ -1355,7 +1388,8 @@ jQuery(document).ready(function($){
 			}
 			
 			User_Interface_Selection.prototype.fillWithParts = function (topcat, subcat) {
-				$("#ls_select_selection div").remove();
+				$("#ls_select_selection").remove();
+				$("#ls_select_container").append('<div id="ls_select_selection"></div>'); 
 				var selectParts = ui.select.qualifiedParts.slice(0); // Clone array to avoid passing by reference
 				// Category filter
 				if (topcat !== "") {
@@ -1374,7 +1408,6 @@ jQuery(document).ready(function($){
 				
 				// Subcategory filter
 				if (topcat !== "" && subcat !== "") {
-					console.log("test");
 					var subdeleteIndexes = [];
 					for (var index = 0; index < selectParts.length; index++) {
 						if (selectParts[index].subCat !== subcat) {
@@ -1415,10 +1448,15 @@ jQuery(document).ready(function($){
 						} else {
 							ui.select.selectedPart.flip = false;
 						}
-					
 						ui.select.showPartInspect();
 					});
 				}
+				// Add pretty scrollbar if item amount exceeds height
+				$("#ls_select_selection").mCustomScrollbar({ 
+					theme: "rounded-dots",
+					scrollInertia: 500,
+					mouseWheel:{ deltaFactor: 200 }
+				});
 			}
 			
 			User_Interface_Selection.prototype.closePartSelection = function() {
@@ -1460,7 +1498,6 @@ jQuery(document).ready(function($){
 				$("#ls_select_inspect_description_content").text(ui.select.selectedPart.info);
 				
 				// Add mod selection
-				$("#ls_select_inspect_modContainer").append();
 				var mods_array = current_lightsaber.findQualifiedMods(ui.select.selectedPart.partName);
 				for (var index = 0; index < mods_array.length; index++) {
 					$("#ls_select_inspect_modInnerContainer").append("<div class='ls_select_itemcontainer'><img class='ls_select_img' id='ls_select_inspect_mod_"+ mods_array[index].modName +"' src='" + mods_array[index].img_url + mods_array[index].colors[0] + ".png'><h2 class='ls_select_item_title'>" + mods_array[index].prettyName +"</h2></div>");
@@ -1468,6 +1505,11 @@ jQuery(document).ready(function($){
 						$("#ls_select_inspect_modInnerContainer div").last().find("img").addClass("ls_flip");
 					}
 				}
+				// Add pretty scrollbar if item amount exceeds height
+				$("#ls_select_selection").mCustomScrollbar({ 
+					scrollInertia: 500,
+					mouseWheel:{ deltaFactor: 200 }
+				});
 				$('#ls_select_inspect_modInnerContainer .ls_select_itemcontainer').first().addClass("ls_select_inspect_selected");
 				$('#ls_select_inspect_modInnerContainer .ls_select_itemcontainer').on("click", function() {
 					$(this).addClass("ls_select_inspect_selected").siblings().removeClass("ls_select_inspect_selected");
@@ -1563,8 +1605,9 @@ jQuery(document).ready(function($){
 				
 				if (mod !== "none") {				
 					$("#ls_select_inspect_pictureInnerContainer").append("<img id='ls_select_inspect_image_mod' src='"+ mod.img_url + mod.colors[modColorIndex] +".png'>");
-					var zoomMulti = $("#ls_select_inspect_pictureInnerContainer").height() / 500;
+					var zoomMulti = $("#ls_select_inspect_image").height() / 500;
 					modOffset = ui.select.selectedPart.modOffset * zoomMulti;
+					$("#ls_select_inspect_image_mod").height($("#ls_select_inspect_image").height());
 					if (ui.select.selectedPart.modAttachment == "left") {
 						$("#ls_select_inspect_image_mod").css("left", modOffset);
 					} 
@@ -1629,6 +1672,7 @@ jQuery(document).ready(function($){
 			}
 						
 			User_Interface_Selection.prototype.reset = function () {
+				this.selectionActive = false;
 				this.side = null;
 				this.qualifiedParts = null;
 				this.selectedPart = null;
@@ -1644,6 +1688,7 @@ jQuery(document).ready(function($){
 			
 			User_Interface_Mod.prototype.startConfig = function (part_id) {
 				// Preliminary checks
+				if (ui.select.selectionActive) { return; }
 				ui.mod.isConfigFinished();
 				ui.mod.moddingInProgress = true;
 				ui.mod.partInConfig = part_id;
@@ -1749,7 +1794,9 @@ jQuery(document).ready(function($){
 				$("#ls_config_container #ls_config_partInfo_field").text(activePart.info);     																										// Description		
 				 																										
 				// Part flippable?
-				if (!(activePart.leftConnector === activePart.rightConnector ||	current_lightsaber.currentBuild.length == 1)) {
+				if (activePart.leftConnector.toString() === activePart.rightConnector.toString() ||	current_lightsaber.currentBuild.length == 1) {
+					$("#ls_config_button_flip").css("pointer-events", "auto");
+				} else {
 					$("#ls_config_button_flip").css("pointer-events", "none");
 				}
 				

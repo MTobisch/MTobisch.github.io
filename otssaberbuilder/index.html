@@ -2,16 +2,18 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Lightsaber-Configuration</title>
-		<meta name="robots" content="noindex, nofollow">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="styles.css?v=1.0">
+		<link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">
+		<link rel="stylesheet" href="custom-content-scroller/jquery.mCustomScrollbar.css" />
 		<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">
 		<script src="jquery-ui/external/jquery/jquery.js"></script>
 		<script src="jquery-ui/jquery-ui.min.js"></script>
 		<script src="jquery-ui-punch/jquery.ui.touch-punch.min.js"></script>
+		<script src="custom-content-scroller/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="custom-mousewheel/jquery.mouseWheel.min.js"></script>
 		<script src="ls_config.js"></script>
 	</head>
 	<body>
@@ -39,6 +41,7 @@
 					<div id="ls_paint_container">
 						<div id="ls_build_container" class="ls_canvas_container"></div>
 						<div id="ls_preload_container" class="ls_canvas_container">
+							<div id="ls_preload_assets"></div>
 							<div id="ls_preload_parts"></div>
 							<div id="ls_preload_mods"></div>
 						</div>
