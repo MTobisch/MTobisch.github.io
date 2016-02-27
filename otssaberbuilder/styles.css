@@ -548,8 +548,8 @@ body {
 	.ls_select_itemcontainer {
 		position: relative;
 		display: inline-block;
-		width: 25%;
-		height: 30%;
+		width: 262px;
+		height: 90px;
 		cursor: pointer;
 		overflow: hidden;
 		transition: 0.3s ease background-color;
