@@ -350,6 +350,10 @@
 		border-left: 2px solid black;
 		border-right: 2px solid black;
 	}
+	#ls_config #ls_modbutton_backpanel {
+		left: -70px;
+		width: 400px;
+	}
 	
 	
 	
