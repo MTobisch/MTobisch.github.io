@@ -86,7 +86,11 @@
 		}
 	
 	
-		
+		#ls_config #ls_select_inspect_modInnerContainer .ls_select_itemcontainer {
+			width: 50%;
+			height: 50%;
+		}
+			
 		#ls_config #ls_select_inspect_ok_button {
 			width: 391px;
 		}

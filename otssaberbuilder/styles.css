@@ -86,6 +86,10 @@ body {
 		height: 60px;
 		margin: auto;
 		transform: translateY(-50%);	
+			-moz-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
 	}
 
 	#ls_loadingscreen_icon {
@@ -203,7 +207,11 @@ body {
 		left: 0;
 		right: 0;
 		top: 50%;
-		transform: translateY(-50%);
+		transform: translateY(-50%);	
+			-moz-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
 		box-sizing: border-box;
 		width: 150px;
 		height: 30px;
@@ -314,7 +322,11 @@ body {
 		height: 100%;
 		float: right;
 		margin-right: 30px;
-		transform-origin: 0% 0%;
+		transform-origin: 0% 0%;	
+			-moz-transform-origin: 0% 0%;
+			-ms-transform-origin:0% 0%;
+			-o-transform-origin: 0% 0%;
+			-webkit-transform-origin: 0% 0%;
 		box-sizing: border-box;
 		cursor: pointer;
 	}
@@ -335,7 +347,15 @@ body {
 				width: 200%;
 				background-color: orange;
 				transform: rotate(45deg);
+					-moz-transform: rotate(45deg);
+					-ms-transform: rotate(45deg);
+					-o-transform: rotate(45deg);
+					-webkit-transform: rotate(45deg);
 				transform-origin: 128% 28%;
+					-moz-transform-origin: 128% 28%;
+					-ms-transform-origin: 128% 28%;
+					-o-transform-origin: 128% 28%;
+					-webkit-transform-origin: 128% 28%;
 				box-sizing: border-box;
 				border-bottom: 2px solid black;
 			}
@@ -358,7 +378,15 @@ body {
 				width: 200%;
 				background-color: orange;
 				transform: rotate(45deg);
+					-moz-transform: rotate(45deg);
+					-ms-transform: rotate(45deg);
+					-o-transform: rotate(45deg);
+					-webkit-transform: rotate(45deg);
 				transform-origin: 100% -50%;
+					-moz-transform-origin: 100% -50%;
+					-ms-transform-origin: 100% -50%;
+					-o-transform-origin: 100% -50%;
+					-webkit-transform-origin: 100% -50%;
 				border-right: 2px solid black;
 				box-sizing: border-box;
 			}
@@ -669,17 +697,19 @@ body {
 }
 
 .ls_flip {
-	-moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+	transform: scaleX(-1);
+		-moz-transform: scaleX(-1);
+		-ms-transform: scaleX(-1);
+	  -o-transform: scaleX(-1);
+	  -webkit-transform: scaleX(-1);
 }
 
 	#ls_select_container .ls_flip {
-		-moz-transform: translateY(-50%) scaleX(-1);
-	  -o-transform: translateY(-50%) scaleX(-1);
-	  -webkit-transform: translateY(-50%) scaleX(-1);
-	  transform: translateY(-50%) scaleX(-1);
+		transform: translateY(-50%) scaleX(-1);
+			-moz-transform: translateY(-50%) scaleX(-1);
+			-ms-transform: translateY(-50%) scaleX(-1);
+		  -o-transform: translateY(-50%) scaleX(-1);
+		  -webkit-transform: translateY(-50%) scaleX(-1);  
 	}
 
 /* 4. Build parts */
@@ -868,7 +898,11 @@ body {
 		max-width: 90%;
 		max-height: 125%;
 		top: 45%;
-		transform: translateY(-50%);
+		transform: translateY(-50%);	
+			-moz-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
 		margin: 0 auto;
 	}
 	
@@ -960,21 +994,30 @@ body {
 			    top: 50%;
 			    max-width: 100%;
 			    max-height: 100%;
-			    transform: translateY(-50%);
+			    transform: translateY(-50%);	
+						-moz-transform: translateY(-50%);
+						-ms-transform: translateY(-50%);
+						-o-transform: translateY(-50%);
+						-webkit-transform: translateY(-50%);
 				}
 				
 				#ls_select_inspect_pictureInnerContainer .ls_flip {
-					-moz-transform: translateY(-50%) scaleX(-1);
-				  -o-transform: translateY(-50%) scaleX(-1);
-				  -webkit-transform: translateY(-50%) scaleX(-1);
-				  transform: translateY(-50%) scaleX(-1);
+					transform: translateY(-50%) scaleX(-1);
+						-moz-transform: translateY(-50%) scaleX(-1);
+						-ms-transform: translateY(-50%) scaleX(-1);
+					  -o-transform: translateY(-50%) scaleX(-1);
+					  -webkit-transform: translateY(-50%) scaleX(-1); 
 				}
 				
 				#ls_select_inspect_image_mod {
 					position: absolute;
 					top: 50%;
 					max-height: 100%;
-					transform: translateY(-50%);
+					transform: translateY(-50%);	
+						-moz-transform: translateY(-50%);
+						-ms-transform: translateY(-50%);
+						-o-transform: translateY(-50%);
+						-webkit-transform: translateY(-50%);
 				}
 
 		
@@ -1084,8 +1127,8 @@ body {
 			}
 			
 				#ls_select_inspect_modInnerContainer .ls_select_itemcontainer {
-					width: 50%;
-					height: 33%;
+					width: 214px;
+					height: 60px;
 				}
 				
 				#ls_select_inspect_modInnerContainer .ls_select_itemcontainer img {
@@ -1166,7 +1209,15 @@ body {
 					height: 100%;
 					background-color: orange;
 					transform: rotate(-45deg);
+						-moz-transform: rotate(-45deg);
+						-ms-transform: rotate(-45deg);
+						-o-transform: rotate(-45deg);
+						-webkit-transform: rotate(-45deg);
 					transform-origin: 98px 48px;	
+						-moz-transform-origin: 98px 48px;	
+						-ms-transform-origin: 98px 48px;	
+						-o-transform-origin: 98px 48px;	
+						-webkit-transform-origin: 98px 48px;	
 					cursor: pointer;
 				}
 				
@@ -1199,6 +1250,10 @@ body {
 	height: 100%;
 	margin: auto;
 	transform: translateX(-50%);
+		-moz-transform: translateX(-50%);
+		-ms-transform: translateX(-50%);
+		-o-transform: translateX(-50%);
+		-webkit-transform: translateX(-50%);
 	opacity: 0;
 	transition: 0.2s ease opacity 0.6s;
 	z-index: 100;	
@@ -1219,7 +1274,11 @@ body {
 		margin: 0;
 		height: 230px;
 		width: 100%;
-		transform: translateY(-50%);
+		transform: translateY(-50%);	
+			-moz-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
 	}
 	
 		#config_button_up {
@@ -1249,7 +1308,11 @@ body {
 	#config_buttons_horizontal {
 		position: absolute;
 		top: 50%;
-		transform: translateY(-50%);
+		transform: translateY(-50%);	
+			-moz-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
 		height: 0px;
 		width: 100%;
 	}
@@ -1320,7 +1383,15 @@ body {
 			width: 200%;
 			height: 200%;
 			transform: rotate(45deg);
+				-moz-transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				-o-transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
 			transform-origin: 74px 170px;
+				-moz-transform-origin: 74px 170px;
+				-ms-transform-origin: 74px 170px;
+				-o-transform-origin: 74px 170px;
+				-webkit-transform-origin: 74px 170px;
 			background-color: rgba(0,0,0, 0.6);
 		}
 	
@@ -1334,7 +1405,15 @@ body {
 			width: 200%;
 			height: 200%;
 			transform: rotate(45deg);
+				-moz-transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				-o-transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
 			transform-origin: 0px 0px;
+				-moz-transform-origin: 0px 0px;
+				-ms-transform-origin: 0px 0px;
+				-o-transform-origin: 0px 0px;
+				-webkit-transform-origin: 0px 0px;
 			background-color: rgba(0,0,0, 0.6);
 		}
 
@@ -1592,7 +1671,11 @@ body {
 	#ls_dialogue_panel {
 		position: absolute;
 		top: 50%;
-		transform: translateY(-50%);
+		transform: translateY(-50%);	
+			-moz-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
 		left: 0;
 		right: 0;
 		margin: auto;
