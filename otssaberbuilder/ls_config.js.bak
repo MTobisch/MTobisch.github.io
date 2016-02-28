@@ -35,7 +35,8 @@ jQuery(document).ready(function($){
 			function Initializer () {
 				// Initialize list with all possible parts
 				var preloadAssets = (function() {
-					$("#ls_preload_assets").append("<img class='ls_preload_img_background' src='assets/blueprint.jpg'>");
+					$("#ls_preload_assets").append("<img id='ls_preload_img_loadicon' src='assets/loadicon.gif'>");
+					$("#ls_preload_assets").append("<img id='ls_preload_img_background' src='assets/blueprint.jpg'>");
 				})();
 				
 				this.allParts = (function () {
@@ -136,28 +137,37 @@ jQuery(document).ready(function($){
 					chrome_black: "#4D4D4D"
 				}	
 				
+				this.backgrounds = [
+					"blueprint.jpg", 
+					"carbon_fibre.png",
+					"wood.png"		
+				];
+				
+				var loadBackground = (function () {
+					$("#ls_canvas").append("<div id='ls_background_cover'></div>");
+					$("#ls_preload_img_background").one("load", function() {
+						console.log("Background loaded!");
+		  			$("#ls_config").css("background-image", "url('assets/backgrounds/blueprint.jpg')");
+		  			setTimeout(function() {
+		  				$("#ls_background_cover").css("opacity","0");
+		  			}, 50);
+		  			setTimeout(function() {
+		  				$("#ls_background_cover").remove();
+		  			}, 1000);
+					}).each(function() {
+		  			if(this.complete) $(this).load();
+					});
+				})();
+				
 				var loadingScreen = (function() {
 					$("#ls_config").append("<div id='ls_loadingscreen'><div id=ls_loadingscreen_panel><div id='ls_loadingscreen_icon'></div><h1 id='ls_loadingscreen_text'>Loading assets...</h1></div></div>");
 					
 					$(window).on("load", function() {
-						console.log("Loaded!");
+						console.log("Assets loaded!");
 		  			$("#ls_loadingscreen").remove();
 					}).each(function() {
 		  			if(this.complete) $(this).load();
 					});
-					
-					
-					/* 
-						$("#ls_config").append("<div id='ls_loadingscreen'><div id='ls_loadingscreen_panel'></div></div>");
-						$("#ls_loadingscreen_panel").append("<div id='ls_loadingscreen_title'>Unofficial OTS saber configuration tool</div>");
-							$("#ls_loadingscreen_panel").append("<div id='ls_loadingscreen_textcontainer'></div>"),
-							$("#ls_loadingscreen_textcontainer").append("<div class='ls_loadingscreen_text'>This tool allows you to build the saber of your dreams from parts of the HCCLS OTS line.</div>");
-							$("#ls_loadingscreen_textcontainer").append("<div class='ls_loadingscreen_text'>Please note that this is a pure fan project and is in no way directly associated with Ken Hampton or HHCLS.</div>");
-							$("#ls_loadingscreen_textcontainer").append("<div class='ls_loadingscreen_text'>Also note that while all parts have been hand-drawn with utmost care, there may be some small inaccuracies in size as the official dimensions are not yet publicly available.</div>");
-							$("#ls_loadingscreen_textcontainer").append("<div class='ls_loadingscreen_text'>If you're ready to get started, click on any of the Plus-Symbols.</div>");
-						$("#ls_loadingscreen_panel").append("<div id='ls_loadingscreen_icon'></div>");
-						$("#ls_loadingscreen_panel").append("<div id='ls_loadingscreen_button'></div>");						
-					*/
 				})();
 				
 				var centerBuildContainer = (function() {
@@ -471,6 +481,7 @@ jQuery(document).ready(function($){
 					this.buildContainer.append("<div id='" + part.id + "' class='ls_part ls_type_" + part.partType + " ls_partname_" + part.partName + "' style='left:" + leftPos + ";'><div class='ls_imgcontainer ls_imgcontainer_"+  part.partName +" ls_config_active' style='top: 0px;'><img class='ls_img ls_img_"+ part.partName +"' src='" + part.img_url + part.colors[part.activeColor] + ".png'></div></div>");	
 					$("#ls_build_container > div").last().width(part.partWidth*ui.getZoom()); // Manually set width, b/c child elements are all absolute
 					$("#ls_build_container > div").last().find(".ls_imgcontainer").width(part.partWidth*ui.getZoom());
+					this.animateAddImage(part, "");
 					this.startPosition = parseInt($("#ls_build_container > div").first().css("left")) + (ui.getZoom() * part.leftClip); // Recalculate both, because the first element needs to establish them
 					this.endPosition = parseInt($("#ls_build_container > div").last().css("left")) + $("#ls_build_container img").last().width() - (ui.getZoom() * part.rightClip);
 					//Paint mod
@@ -541,6 +552,17 @@ jQuery(document).ready(function($){
 			}
 			
 			Painter.prototype.animateAddImage = function (part, side) {
+				if (current_lightsaber.currentBuild.length == 1) { // First part
+					var initialPos = -500;
+					var finalPos = 0;
+					
+					// Animation
+					$("#ls_build_container > div").first().css("top", initialPos);
+					$("#ls_build_container > div").first().css("transition", this.transition);
+					setTimeout(function(){ // Some timeout needed. If instant, browser will just take last left css value in row to save work. Stupid.
+						$("#ls_build_container > div").first().css("top", finalPos); 			
+					}, 30);
+				}
 				
 				if (side === "back") {
 					// Get right image edge to determine even starting distances regardless of clippings
@@ -1054,9 +1076,15 @@ jQuery(document).ready(function($){
 					buttonleft_minus : $("#ls_buttonleft_minus"),
 					buttonright_plus : $("#ls_buttonright_plus"),
 					buttonright_minus: $("#ls_buttonright_minus"),
-					buttonmod				 : $("#ls_modbutton_center")
+					buttonmod				 : $("#ls_modbutton_center"),
+					buttonGetParts   : $("#ls_getParts_container"),
+					buttonInfo			 : $("#ls_menubutton_info"),
+					buttonBackground : $("#ls_menubutton_background"),
+					buttonWebsite 	 : $("#ls_menubutton_website"),
+					buttonMobileMenu : $("#ls_mobile_menu")
 				}
-				this.currentZoom = 10;
+				this.currentZoom = 12;
+				this.currentBackground = 0;
 
 				this.buttons.buttonleft_plus.on("click", function(e) {
 					e.preventDefault();
@@ -1102,6 +1130,21 @@ jQuery(document).ready(function($){
 						}
 					}
 				});	
+				this.buttons.buttonGetParts.on("click", function(e) {
+					ui.createWindowDialogue("partlist");
+				});
+				this.buttons.buttonInfo.on("click", function(e) {
+					ui.createWindowDialogue("info");
+				});
+				this.buttons.buttonBackground.on("click", function(e) {
+					ui.changeBackground();
+				});
+				this.buttons.buttonWebsite.on("click", function(e) {
+					window.open("http://www.kickstarter.com/projects/1023202441/ots-sabers-endless-customization-in-the-palm-of-yo/");
+				});
+				this.buttons.buttonMobileMenu.on("click", function(e) {
+					ui.openMobileMenu();
+				});
 			}
 			
 			User_Interface.prototype.getZoom = function() {
@@ -1119,7 +1162,69 @@ jQuery(document).ready(function($){
 			
 			User_Interface.prototype.updateInfoWindow = function () {
 				var partCount = current_lightsaber.getPartCount();
-				$("#ls_partsCount_field").text(partCount);
+				$(".ls_partsCount_field").text(partCount);
+			}
+			
+			User_Interface.prototype.createWindowDialogue = function (type) {
+										
+				$("#ls_config").append("<div id='ls_dialogueBackground'><div id='ls_dialogue_panel'></div></div>");
+				$("#ls_dialogue_panel").append("<div id='ls_dialogue_title'></div>");
+				$("#ls_dialogue_panel").append("<div id='ls_dialogue_content'></div>");
+				$("#ls_dialogue_panel").append("<div id='ls_dialogue_button'>Accept</div>");						
+				$("#ls_dialogue_button").on("click", function() {
+					$("#ls_dialogueBackground").remove();
+				});
+				
+				if (type == "info") {
+					$("#ls_dialogue_title").text("General info");
+					$("#ls_dialogue_content").append("<div id='ls_dialogue_textcontainer'></div>");
+					$("#ls_dialogue_textcontainer").append("<div class='ls_dialogue_text'>The Unofficial OTS Saber Configutaion Tool allows you to build the saber of your dreams from parts of the HCCLS OTS line.</div>");
+					$("#ls_dialogue_textcontainer").append("<div class='ls_dialogue_text'>Please note that this is a pure fan project and is in no way directly associated with Ken Hampton or HHCLS.</div>");
+					$("#ls_dialogue_textcontainer").append("<div class='ls_dialogue_text'>Also note that while all parts have been hand-drawn with utmost care, there may be some small inaccuracies in size as the official dimensions are not yet publicly available.</div>");
+					$("#ls_dialogue_textcontainer").append("<div class='ls_dialogue_text'>If you are ready to get started, click on any of the Plus-Symbols to add a chassis.</div>");
+					$("#ls_dialogue_textcontainer").append("<div class='ls_dialogue_text'>Happy building!</div>");
+				}
+				
+				if (type == "partlist") {
+					$("#ls_dialogue_title").text("Part list");
+					
+					if(current_lightsaber.currentBuild.length == 0) {
+						$("#ls_dialogue_content").append("<div id='ls_dialogue_textcontainer'></div>");
+						$("#ls_dialogue_textcontainer").append("<div class='ls_dialogue_text'>You have not selected any parts yet!</div>");
+						$("#ls_dialogue_textcontainer").append("<div class='ls_dialogue_text'>To start building, click on any of the Plus-symbols at the bottom of the screen.</div>");
+					}	else {
+						$("#ls_dialogue_content").append("<div id='ls_dialogue_partslist'></div>");
+						for (var index = 0; index < current_lightsaber.currentBuild.length; index++) {
+							if (current_lightsaber.currentBuild[index].partName !== "chassis_none") {
+								$("#ls_dialogue_partslist").append("<div class='ls_dialogue_partslist_item'><div class='ls_dialogue_partslist_part'>"+ current_lightsaber.currentBuild[index].prettyName +"</div></div>");
+								if (current_lightsaber.currentBuild[index].mod !== "none") {
+									$(".ls_dialogue_partslist_item").last().append("<div class='ls_dialogue_partslist_mod'>"+ current_lightsaber.currentBuild[index].mod.prettyName +"</div>");
+								}
+							}
+						}
+					}				
+				}
+				// Add pretty scrollbar
+				$("#ls_dialogue_content").mCustomScrollbar({ 
+					scrollInertia: 500,
+					theme: "rounded-dots",
+					mouseWheel:{ deltaFactor: 200 }
+				});
+			}
+			
+			User_Interface.prototype.changeBackground = function () {
+				this.currentBackground++;
+				if (this.currentBackground == ini.backgrounds.length) {
+					this.currentBackground = 0;
+				}
+				$("#ls_config").css("background-image", "url('assets/backgrounds/"+ ini.backgrounds[this.currentBackground] +"')");
+				
+				// Blueprint looks better with 100% size
+				if (this.currentBackground == 0) {
+					$("#ls_config").css("background-size", "100%");
+				} else {
+					$("#ls_config").css("background-size", "auto");
+				}
 			}
 			
 			User_Interface.prototype.filterQualifiedParts = function (qualifiedParts, side, part_id) {
@@ -1193,6 +1298,39 @@ jQuery(document).ready(function($){
 				
 				
 				return qualifiedParts;
+			}
+			
+			User_Interface.prototype.openMobileMenu = function () {
+				$("#ls_mobile_menu").unbind();
+				$("#ls_mobile_menu").on("click", function() {
+					$("#ls_mobile_menu").removeClass("ls_mobile_menu_open");
+					$("#ls_mobile_menu_list").remove();
+					$("#ls_mobile_menu").on("click", function() {
+						ui.openMobileMenu();
+					})
+				});
+				
+				$("#ls_mobile_menu").append("<div id='ls_mobile_menu_list'></div>");
+					$("#ls_mobile_menu_list").append("<div id='ls_mobile_menu_info' class='ls_mobile_menu_item'>Info</div>");
+						$("#ls_mobile_menu_info").on("click", function () {
+							ui.createWindowDialogue("info");
+						});
+					$("#ls_mobile_menu_list").append("<div id='ls_mobile_menu_getParts' class='ls_mobile_menu_item'>Get parts</div>");
+						$("#ls_mobile_menu_getParts").on("click", function () {
+							ui.createWindowDialogue("partlist");
+						});
+					$("#ls_mobile_menu_list").append("<div id='ls_mobile_menu_background' class='ls_mobile_menu_item'>Background</div>");
+						$("#ls_mobile_menu_background").on("click", function () {
+							ui.changeBackground();
+						});
+					$("#ls_mobile_menu_list").append("<div id='ls_mobile_menu_website' class='ls_mobile_menu_item'>Visit the Kickstarter</div>");
+						$("#ls_mobile_menu_website").on("click", function () {
+							window.open("http://www.kickstarter.com/projects/1023202441/ots-sabers-endless-customization-in-the-palm-of-yo/");
+						});
+			
+				$("#ls_mobile_menu").addClass("ls_mobile_menu_open");
+			
+					
 			}
 			
 			// Drag lightsaber with mouse
@@ -1505,7 +1643,7 @@ jQuery(document).ready(function($){
 					}
 				}
 				// Add pretty scrollbar if item amount exceeds height
-				$("#ls_select_selection").mCustomScrollbar({ 
+				$("#ls_select_inspect_modInnerContainer").mCustomScrollbar({ 
 					scrollInertia: 500,
 					mouseWheel:{ deltaFactor: 200 }
 				});
@@ -1794,18 +1932,23 @@ jQuery(document).ready(function($){
 				 																										
 				// Part flippable?
 				if (activePart.leftConnector.toString() === activePart.rightConnector.toString() ||	current_lightsaber.currentBuild.length == 1) {
+					$("#ls_config_button_flip").find("img").attr("src", 'assets/flip.png');
 					$("#ls_config_button_flip").css("pointer-events", "auto");
 				} else {
+					$("#ls_config_button_flip").find("img").attr("src", 'assets/cross-white.png');
 					$("#ls_config_button_flip").css("pointer-events", "none");
 				}
 				
 				// Set update part color
 				var partColor = activePart.colors[activePart.activeColor];
-				if (partColor !== "none") {
+				if (partColor !== "none") {					
+					$("#ls_config_button_color").find("p").text("Color (" + activePart.colors.length + ")");
+					
 					colorHex = ini.colors[partColor];
 					$("#ls_config_button_color_field").css("background", "");
 					$("#ls_config_button_color_field").css("background-color", colorHex);
 				} else {
+					$("#ls_config_button_color").find("p").text("Color");		
 					$("#ls_config_button_color_field").css("background-color", "");
 					$("#ls_config_button_color_field").css("background", "transparent repeating-linear-gradient(45deg, rgb(221, 221, 221), rgb(221, 221, 221) 10px, rgb(85, 85, 85) 0px, rgb(85, 85, 85) 22px) repeat scroll 0% 0%");
 				}
@@ -1828,15 +1971,19 @@ jQuery(document).ready(function($){
 				// Mod-Color-Button
 				if (activePart.modAttachment !== "none" && activePart.mod.colors) { 							// Is mod capable and has mod installed
 					modColor = activePart.mod.colors[activePart.mod.activeColor];
-					if (modColor !== "none") { 																											// Installed mod has proper color
+					if (modColor !== "none") { 								
+						$("#ls_config_button_modColor").find("p").text("Color (" + activePart.mod.colors.length + ")");
+																									// Installed mod has proper color
 						modColorHex = ini.colors[modColor];
 						$("#ls_config_button_modColor_field").css("background", "");
 						$("#ls_config_button_modColor_field").css("background-color", modColorHex);
 					} else {
+						$("#ls_config_button_modColor").find("p").text("Color");
 						$("#ls_config_button_modColor_field").css("background-color", "");
 						$("#ls_config_button_modColor_field").css("background", "transparent repeating-linear-gradient(45deg, rgb(221, 221, 221), rgb(221, 221, 221) 10px, rgb(85, 85, 85) 0px, rgb(85, 85, 85) 22px) repeat scroll 0% 0%");
 					}	
 				} else {
+					$("#ls_config_button_modColor").find("p").text("Color");
 					$("#ls_config_button_modColor_field").css("background-color", "");
 					$("#ls_config_button_modColor_field").css("background", "transparent repeating-linear-gradient(45deg, rgb(221, 221, 221), rgb(221, 221, 221) 10px, rgb(85, 85, 85) 0px, rgb(85, 85, 85) 22px) repeat scroll 0% 0%");
 				}

@@ -15,6 +15,22 @@
 		"colors": ["none"],
 		"parts": ["chassis_standard"]
 	},
+	"chassis_crystal_power": {
+		"modName": "chassis_crystal_power",
+		"prettyName": "Power",
+		"modType": "chassis",
+		"img_url": "models/mods/chassis/chassis_crystal_power_",
+		"colors": ["none"],
+		"parts": ["chassis_crystal"]
+	},
+	"chassis_crystal_power_and_sound": {
+		"modName": "chassis_crystal_power_and_sound",
+		"prettyName": "Power + Sound",
+		"modType": "chassis",
+		"img_url": "models/mods/chassis/chassis_crystal_power_and_sound_",
+		"colors": ["none"],
+		"parts": ["chassis_crystal"]
+	},
 	
 	
 	

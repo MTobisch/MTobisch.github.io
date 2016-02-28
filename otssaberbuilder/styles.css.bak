@@ -1,3 +1,5 @@
+@import 'mobile.css' (max-width: 1600px);
+
 /* 1. General */
 /* --------------------------------------------------------------------------------- */
 
@@ -18,7 +20,6 @@ body {
 	position: relative;
 	width: 100%;
 	height: 100%;
-	background-image: url("assets/blueprint.jpg");
 	background-size: 100%;
 }
 
@@ -52,8 +53,19 @@ body {
 		text-align: left;
  	}
  	
-/* 1.1 Loadingscreen */
+/* 1.2 Loadingscreen */
 /*-------------------*/	 
+
+#ls_background_cover {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #404040;
+	opacity: 1;
+	transition: 1s ease all;
+}
 
 #ls_loadingscreen {
 	position: absolute;
@@ -73,8 +85,7 @@ body {
 		width: 300px;
 		height: 60px;
 		margin: auto;
-		transform: translateY(-50%);
-		
+		transform: translateY(-50%);	
 	}
 
 	#ls_loadingscreen_icon {
@@ -92,15 +103,12 @@ body {
 		vertical-align: top;
 		height: 100%;
 		text-align: center;
-		margin: 0px 0px 0px 25px;
+		margin: 0px 0px 0px 20px;
 		font-size: 1.5em;
-		padding: 22px 0px 0px 0px;
+		padding: 15px 0px 0px 0px;
 		box-sizing: border-box;
+		color: white;
 	}
-	
-
-
-
 
  	
 /* 2. Overlay UI */
@@ -113,23 +121,15 @@ body {
 	position: absolute;
 	top: 0px;
 	width: 585px;
-	height: 120px;
+	height: 100px;
 	overflow: hidden;
 	z-index: 100;
 }
 
-	#ls_infoWindow-title {
-		width: 210px;
-		margin: 0px;
-		border-radius: 0px 0px 20px;
-		border-bottom: 2px solid black;
-		padding: 5px 5px 5px 10px;
-	}
-
 	#ls_infowindow_innercontainer {
 		float: left;
 		height: 100%;
-		width: calc(100% - 150px);
+		width: calc(100% - 99px);
 		background-color: orange;
 		border-bottom: 2px solid black;
 		box-sizing: border-box;
@@ -138,11 +138,11 @@ body {
 	#ls_infowindow_edge {
 		float: left;
 		height: 100%;
-		width: 120px;
+		width: 99px;
 		overflow: hidden;
 	}
 	
-		#ls_infowindow_edge div {
+	#ls_infowindow_edge div {
 			height: 150%;
 			width: 100%;
 			background-color: orange;
@@ -159,10 +159,80 @@ body {
 				-webkit-transform-origin: 100% 0%;
 		}
 
+	#ls_infowindow_innercontainer_left {
+		display: inline-block;
+		height: 100%;
+		width: 45%;
+		vertical-align: top;
+	}
+	#ls_infowindow_innercontainer_right {
+		display: inline-block;
+		height: 100%;
+		width: 54%;
+		font-size: 0.85em;
+	}
+
+	#ls_infoWindow-title {
+		height: 40%;
+		margin: 0px;
+		padding: 5px 5px 0px 10px;
+		border-bottom: 2px solid #404040;
+		box-sizing: border-box;
+	}
+
+	#ls_getParts_container {
+		position: relative;
+		width: 100%;
+		height: 60%;
+		padding: 0px 0px 0px 0px;
+		cursor: pointer;
+		transition: 0.3s ease background-color, color;
+	}
+	
+		#ls_getParts_container:hover {
+			background-color: #404040;
+			color: white;
+		}
+		
+		#ls_getParts_container:hover #ls_getParts_button_icon {
+			filter: invert(100%);
+		}
+	
+	#ls_getParts_button {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		box-sizing: border-box;
+		width: 150px;
+		height: 30px;
+		margin: auto;
+		font-size: 1.4em;
+		font-weight: bold;
+	}	
+		#ls_getParts_button_icon {
+			display: inline-block;
+			vertical-align: top;
+			height: 100%;
+			width: 25%;
+			background-image: url("assets/list-icon.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+			margin: 0 7px 0 0;
+		}
+		#ls_getParts_button_title {
+			display: inline-block;
+			vertical-align: top;
+			height: 100%;
+			width: 70%;
+		}
+		
+
 #ls_partsCount_container {
 	overflow: hidden;
-	height: 40px;
-	padding: 10px 0px 0px 10px;
+	height: 30px;
+	padding: 6px 0px 0px 25px;
 }
 	
 	#ls_partsCount {
@@ -173,11 +243,56 @@ body {
 		font-weight: normal;
 	}
 	
-	#ls_partsCount_field {
+	.ls_partsCount_field {
 		float: left;
 		height: 100%;
 		margin: 0;
 		font-size: 1.5em;
+		font-weight: bold;
+	}
+	
+#ls_buildLength_container {
+	overflow: hidden;
+	height: 30px;
+	padding: 0px 0px 0px 25px;
+}
+	
+	#ls_buildLength {
+		float: left;	
+		width: 150px;
+		height: 100%;
+		margin: 0px;
+		font-weight: normal;
+	}
+	
+	.ls_buildLength_field {
+		float: left;
+		height: 100%;
+		margin: 0;
+		font-size: 1.5em;
+		font-weight: bold;
+	}
+	
+#ls_buildPrice_container {
+	overflow: hidden;
+	height: 30px;
+	padding: 0px 0px 0px 25px;
+}
+	
+	#ls_buildPrice {
+		float: left;	
+		width: 150px;
+		height: 100%;
+		margin: 0px;
+		font-weight: normal;
+	}
+	
+	.ls_buildPrice_field {
+		float: left;
+		height: 100%;
+		margin: 0;
+		font-size: 1.5em;
+		font-weight: bold;
 	}
 
 
@@ -195,16 +310,205 @@ body {
 }
 
 	.ls_menubutton {
-		width: 80px;
-		height: 227%;
-		float: left;
-		margin-right: 45px;
-		background-color: orange;
-		transform: rotate(-45deg);
+		width: 115px;
+		height: 100%;
+		float: right;
+		margin-right: 30px;
 		transform-origin: 0% 0%;
+		box-sizing: border-box;
+		cursor: pointer;
 	}
 	
-/* 2.3 Modbutton */
+	.ls_menubutton_bottom {
+		width: 100%;
+		height: 30px;
+		overflow: hidden;
+	}
+		.ls_menubutton_bottom_left {
+			float: left;
+			width: 30px;
+			height: 100%;
+			overflow: hidden;
+		}
+			.ls_menubutton_bottom_left div {
+				height: 200%;
+				width: 200%;
+				background-color: orange;
+				transform: rotate(45deg);
+				transform-origin: 128% 28%;
+				box-sizing: border-box;
+				border-bottom: 2px solid black;
+			}
+		.ls_menubutton_bottom_center {
+			float: left;
+			width: calc(100% - 60px);
+			height: 100%;
+			background-color: orange;
+			border-bottom: 2px solid black;
+			box-sizing: border-box;
+		}
+		.ls_menubutton_bottom_right {
+			float: left;
+			width: 30px;
+			height: 100%;
+			overflow: hidden;
+		}
+			.ls_menubutton_bottom_right div {
+				height: 200%;
+				width: 200%;
+				background-color: orange;
+				transform: rotate(45deg);
+				transform-origin: 100% -50%;
+				border-right: 2px solid black;
+				box-sizing: border-box;
+			}
+			
+#ls_menubutton_info {
+	width: 17%
+}
+
+	.ls_menubutton_icon_container {
+		position: relative;
+		height: 35px;
+		background-color: orange;
+		border-left: 2px solid black;
+		border-right: 2px solid black;
+	}
+
+	.ls_menubutton_icon {
+		width: 100%;
+		height: 35px;
+		background-image: url("assets/info-icon.png");
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		position: absolute;
+		top: 5px;
+		left: 0px;
+	}
+	
+	.ls_menubutton_title {
+		width: 100%;
+		height: calc(100% - 65px);
+		padding: 14px 0px 0px 0px;
+		border-left: 2px solid black;
+		border-right: 2px solid black;
+		background-color: orange;
+		box-sizing: border-box;
+		font-size: 1.1em;
+		font-weight: bold;
+		text-align: center;
+	}
+	
+#ls_menubutton_background {
+	width: 22%;
+}
+
+	#ls_menubutton_background .ls_menubutton_icon {
+		background-image: url("assets/background-icon.png");
+	}
+
+#ls_menubutton_website {
+	width: 40%;
+}
+
+	#ls_menubutton_website_title {
+		width: 100%;
+		height: 30px;
+		text-align: center;
+		font-size: 1.1em;
+		box-sizing: border-box;
+		padding: 5px 0px 0px 0px;
+		font-weight: bold;
+		background-color: orange;
+		border-left: 2px solid black;
+		border-right: 2px solid black;
+	}
+	
+	#ls_menubutton_website_logo {
+		height: calc(100% - 60px);
+		width: 100%;
+		background-image: url("assets/kickstarter.png");
+		background-size: 85%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-color: orange;
+		border-left: 2px solid black;
+		border-right: 2px solid black;
+		box-sizing: border-box;
+	}
+	
+/* 2.3 Mobile Menu */
+/*-----------------*/
+
+#ls_infowindowMobile {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+}
+
+	#ls_infowindowMobile h2 {
+		float: left;		
+		margin: 10px 0 0 20px;
+		color: white;
+		font-size: 1.1em;
+	}
+
+	#ls_infowindowMobile p {
+		float: left;
+		margin: 10px 0 0 10px;
+		color: orange;
+		font-size: 1.1em;
+	}
+
+
+#ls_mobile_menu {
+	display: none;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 100px;
+	height: 100%;
+	z-index: 100;
+	background-image: url("assets/mobile-menu.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	cursor: pointer;
+}
+
+	.ls_mobile_menu_open {
+		background-color: orange;
+		background-image: url("assets/mobile-menu-gray.png") !important;
+	}
+
+	#ls_mobile_menu_list {
+		position: absolute;
+		right: 0px;
+		bottom: -202px;
+		width: 200px;
+		height: -200px;
+		background-color: orange;
+		overflow: hidden;
+	}
+	
+	.ls_mobile_menu_item {
+		float: right;
+		height: 50px;
+		width: 100%;
+		padding: 15px 0px 0px 20px;
+		font-size: 1.1em;
+		font-weight: bold;
+		box-sizing: border-box;
+		border-bottom: 1px solid black;
+	}
+
+	
+
+	
+/* 2.4 Modbutton */
 /*-----------------*/	
 		
 #ls_modbutton {		
@@ -288,7 +592,7 @@ body {
 		border-top: 2px solid black;
 	}
 
-/* 2.4 Plus-Minus-Buttons */
+/* 2.5 Plus-Minus-Buttons */
 /*-------------------------*/
 
 .ls_buttonpanel {
@@ -355,7 +659,7 @@ body {
 	right: 0;
 	margin: 0;
 	width: 0px;
-	height: 250px;
+	height: 300px;
 	background-color: yellow;
 }
 
@@ -451,7 +755,7 @@ body {
 	width: 1100px;
 	height: 400px;
 	margin: auto;
-	background-color: rgba(0,0,0,0.6);
+	background-color: rgba(0,0,0,0.7);
 	z-index: 20;
 }
 
@@ -490,8 +794,8 @@ body {
 				right: 0;
 				top: 0;
 				height: 40px;
-				width: 45px;
-				padding: 0 0 0 12px;
+				width: 100px;
+				padding: 0 0 0 40px;
 				font-size: 2em;
 				font-weight: bold;
 				box-sizing: border-box;
@@ -539,7 +843,7 @@ body {
 	
 	#ls_select_selection {
 		height: 80%;
-		padding: 10px;
+		padding: 10px 10px 20px 10px;
 		overflow: auto;
 		box-sizing: border-box;
 	}
@@ -547,8 +851,8 @@ body {
 	.ls_select_itemcontainer {
 		position: relative;
 		display: inline-block;
-		width: 25%;
-		height: 30%;
+		width: 262px;
+		height: 90px;
 		cursor: pointer;
 		overflow: hidden;
 		transition: 0.3s ease background-color;
@@ -574,7 +878,7 @@ body {
 		width: 100%;
 		margin: 0px;	
 		padding: 0px 0px 3px 0px;
-		font-size: 0.95em;
+		font-size: 0.9em;
 		text-align: center;
 		color: white;
 	}
@@ -776,6 +1080,7 @@ body {
 				box-sizing: border-box;
 				margin: 0% 0px 0px;
 				width: calc(100% - 130px);
+				overflow: auto;
 			}
 			
 				#ls_select_inspect_modInnerContainer .ls_select_itemcontainer {
@@ -1125,7 +1430,7 @@ body {
 			float: right;
 			height: 100%;
 			width: 60px;
-			margin: 0 10px 0 0;
+			margin: 0 0px 0 0;
 			padding: 4px 0px 0px 0px;
 			font-size: 1.5em;
 			text-align: center;
@@ -1138,7 +1443,7 @@ body {
 			float: right;
 			height: 100%;
 			width: 70px;
-			margin: 0 10px 0 0;
+			margin: 0 0px 0 0;
 		}
 		
 			#ls_config_container_upArrow {
@@ -1271,8 +1576,125 @@ body {
 		background-color: rgba(100,100,100,0.5)
 	}
 
+/* 7. Dialogue window */
+/* --------------------------------------------------------------------------------- */
 
-/* 7. Other */
+#ls_dialogueBackground {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 10000;
+}
+
+	#ls_dialogue_panel {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 400px;
+		height: 450px;
+		background-color: rgba(0,0,0,0.6);
+		color: white;
+		border-radius: 10px 10px 0px 0px;
+	}
+	
+		#ls_dialogue_title {
+			width: 100%;
+			height: 25px;
+			padding: 5px 0px;
+			background-color: orange;
+			text-align: center;
+			font-size: 1.3em;
+			font-weight: bold;
+			color: black;
+			border-radius: 10px 10px 0px 0px;
+		}
+		
+		#ls_dialogue_content {
+			overflow: auto;
+			height: calc(100% - 90px);
+			margin: 10px 0px;
+		}
+		
+		#ls_dialogue_textcontainer {
+			padding: 0px 20px;
+		}
+		
+			.ls_dialogue_text {
+				margin: 20px 0px 0px;
+			}
+			
+		#ls_dialogue_partslist {
+			padding: 10px 0px 0px;
+		}
+			
+		.ls_dialogue_partslist_item {
+			position: relative;
+			width: 100%;
+			font-size: 1.1em;
+			padding: 0px 0px 0px 50px;
+			box-sizing: border-box;
+		}
+		
+		.ls_dialogue_partslist_item:before {
+			position: absolute;
+			display: inline-block;
+			left: 14px;
+			top: -32px;
+			height: 20px;
+			width: 20px;
+			content: "\00B7";
+			color: orange;
+			font-size: 4em;
+			text-align: center;
+		}
+		
+			.ls_dialogue_partslist_part {
+				height: 30px;
+			}
+			
+			.ls_dialogue_partslist_mod {
+				position: relative;
+				height: 30px;
+				padding: 0 0 0 50px;
+			}
+				.ls_dialogue_partslist_mod:before {
+					position: absolute;
+					display: inline-block;
+					left: 0px;
+					top: -2px;
+					height: 20px;
+					width: 53px;
+					content: "";
+					text-align: center;
+					background-image: url("assets/subarrow-white.png");
+					background-size: contain;
+					background-repeat: no-repeat;
+					background-position: center;
+				}
+				
+		
+		#ls_dialogue_button {
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			right: 0px;
+			width: 80%;
+			height: 40px;
+			margin: auto;
+			text-align: center;
+			font-size: 1.4em;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+
+/* 8. Other */
 /* --------------------------------------------------------------------------------- */
 
 #ls_author {

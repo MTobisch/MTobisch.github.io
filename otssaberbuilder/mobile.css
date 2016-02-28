@@ -1,0 +1,432 @@
+/* Stylesheet for mobile resolutions
+----------------------------------------------------- */
+
+/* Breakpoint 1600px 
+-------------------------*/ 
+
+@media (min-width: 1470px) and (max-width: 1600px) { 
+	
+	#ls_config .ls_title {
+		font-size: 1.0em;
+		padding: 15px 0px;
+	}
+}
+
+/* Breakpoint 1470px 
+-------------------------*/ 
+
+@media (min-width: 0px) and (max-width: 1470px) { 
+	
+	#ls_config .ls_title {
+		display: none;
+	}
+}
+
+/* Breakpoint 1200px 
+-------------------------*/ 
+
+@media (min-width: 0px) and (max-width: 1200px) { 
+	
+	#ls_config .ls_title {
+		display: inline;
+		font-size: 1.1em;
+		margin: 0;
+		padding: 15px 0px;
+		text-align: center;
+		color: white;
+		position: absolute;
+		right: 118px;
+	}
+	
+	#ls_config #ls_menubutton-container {
+		display: none;
+	}
+	#ls_config #ls_mobile_menu {
+		display: inline;
+	}
+	
+	#ls_config #ls_infowindow_innercontainer_left {
+		display: none;
+	}
+	
+	#ls_config #ls_infowindow_innercontainer_right {
+		width: 100%;
+	}
+	
+	#ls_config #ls_infowindow {
+		width: 350px;
+	}
+	
+	
+	
+	#ls_config #ls_select_container	 {
+		width: 100%;
+	}
+	
+		#ls_config #ls_select_menu_topcat_title {
+			font-size: 1.2em;
+			padding: 5px 10px 0 25px;
+		}
+		
+		#ls_config .ls_select_menu_topcat_item {
+			padding: 8px 10px 0 10px;
+			font-size: 1.2em;
+		}
+		
+		#ls_config #ls_select_menu_subcat {
+			height: 45%;
+		}
+		
+		#ls_config  .ls_select_menu_subcat_item {
+			margin: 5px 0px 0px 5px;
+		}
+		
+		#ls_config .ls_select_itemcontainer {
+			width: 25%;
+		}
+	
+	
+		
+		#ls_config #ls_select_inspect_ok_button {
+			width: 391px;
+		}
+		
+		#ls_config .ls_select_inspect_colorItem {
+			width: 17%;
+		}
+	
+	
+	
+	#ls_config #ls_config_container {
+		width: 100%;
+	}
+	
+	#ls_config_container_leftEdge {
+		display: none;
+	}
+	
+	#ls_config_container_rightEdge {
+		display: none;
+	}
+	
+	#ls_config #ls_config_innerContainer {
+		float: none;
+		margin: auto;
+		width: 100%;
+	}
+	
+	#ls_config .ls_config_panel_button {
+		border-radius: 0px;
+	}
+	
+	
+}
+
+/* Breakpoint 900px 
+-------------------------*/ 
+@media (min-width: 0px) and (max-width: 900px) {
+	
+	#ls_config #ls_canvas {
+		height: calc(100% - 42px);
+	}
+	
+	#ls_config #ls_menubar {
+		height: 40px;
+	}
+	
+	#ls_config #ls_infowindow {
+		display: none;
+	}
+	#ls_config #ls_infowindowMobile {
+		display: inline;
+	}
+	
+	#ls_config .ls_title {
+		display: none;
+	}
+
+
+	
+	#ls_config #ls_select_container {
+		height: 100%;
+	}
+	
+	#ls_config #ls_select_menu {
+		height: 38px;
+	}
+		
+	#ls_config #ls_select_menu_topcat {
+		height: 100%
+	}
+	
+		#ls_config #ls_select_menu_topcat_title {
+			width: 155px;
+			padding: 5px 10px 0 10px;
+		}
+		
+		#ls_config .ls_select_menu_topcat_item {
+			display: none;
+		}
+	
+	#ls_config #ls_select_menu_subcat {
+		display: none;
+	}
+	
+	#ls_config #ls_select_selection {
+		height: calc(100% - 38px);
+	}
+	
+		#ls_config .ls_select_itemcontainer {
+			width: 33%;
+			font-size: 0.9em;
+		}
+		
+	
+	
+	#ls_config #ls_select_inspectSelection	{
+		height: calc(100% - 40px);
+	}
+	
+	#ls_config #ls_select_inspectMenu {
+		height: 40px;
+		font-size: 0.8em;
+	}
+	
+		#ls_config #ls_select_inspect_backButton {
+			font-size: 2.5em;
+		}
+		
+		#ls_config #ls_select_inspectMenubar h1 {
+			padding: 5px 0px 0px 20px;
+		}
+		
+		#ls_config #ls_select_inspectMenu .ls_select_exit {
+			font-size: 2.4em;
+		}
+			
+	#ls_config #ls_select_inspect_leftPanel {
+		width: 50%;
+	}
+	
+		#ls_config #ls_select_inspect_colorContainer_title {
+			width: 70px;
+			margin: 0px 0px 0px 15px;
+		}
+		
+		#ls_config #ls_select_inspect_colorContainer .ls_select_inspect_colorItem {
+			height: 10%;
+			max-height: 35px;
+			margin: 0px 5px 5px 0px;
+		}
+		
+		#ls_config #ls_select_inspect_description_title {
+			width: 70px;
+			margin: 0px 0px 0px 15px;
+		}
+	
+	#ls_config #ls_select_inspect_rightPanel {
+		width: 50%;
+	}
+		
+		#ls_config #ls_select_inspect_modContainer {
+			height: 65%;
+		}
+			
+		#ls_config #ls_select_inspect_modContainer_title {
+			float: none;
+			height: auto;
+			width: 100%;
+			margin: 0px 0px 5px 0px;
+		}
+		
+		#ls_config #ls_select_inspect_modInnerContainer {
+			width: 100%;
+			height: calc(100% - 35px);
+		}
+		
+			#ls_config #ls_select_inspect_modInnerContainer .ls_select_itemcontainer {
+				width: 100%;
+				height: 50%;
+			}
+			
+		#ls_config #ls_select_inspect_modColorContainer_title {
+			margin: -5px 0px 0px 0px;
+		}	
+			
+		#ls_config #ls_select_inspect_modColorContainer .ls_select_inspect_colorItem {
+			width: 22%;
+			height: 100%;
+			max-height: 35px;
+			margin: 0px 5px 5px 0px;
+		}	
+		
+		#ls_config #ls_select_inspect_ok {
+			height: 20%;
+			font-size: 0.9em;
+		}
+		
+		#ls_config #ls_select_inspect_ok_button {
+			width: 319px;
+		}
+		
+		#ls_config #ls_select_inspect_ok_button_content h1 {
+			padding: 5% 0 0 30px;
+		}
+		
+		#ls_config #ls_select_inspect_ok_button_edge {
+			display: none;
+		}
+		
+		
+		
+	#ls_config #ls_config_container {
+		height: 100px;
+		font-size: 0.8em;
+	}
+		#ls_config #ls_config_innerContainer {
+			padding: 2px 0px 0px 0px;
+		}
+		
+	#ls_config #ls_config_partName_h_arrows {
+		display: none;
+	}
+	#ls_config #ls_config_partName_v_arrows {
+		display: none;
+	}
+	
+	#ls_config #ls_config_button_flip {
+		height: 30%;
+		padding: 3px 10px 0px 10px;
+		margin: 0px 0px 25px 0px;
+	}
+	
+	
+	#ls_config #ls_config_modInfo {
+		height: 60%;
+	}
+	#ls_config .ls_config_panel_colorButton {
+		height: 30%;
+		margin: 0;
+	}
+	#ls_config .ls_config_panel_colorButton p {
+		display: none;
+	}
+	#ls_config .ls_config_panel_colorButton div {
+		width: 50%;
+		margin: 4% 0 0 7%;
+		height: 20px;
+	}
+	
+	
+	#ls_config #ls_dialogue_panel {
+		width: 80%;
+		height: 90%;
+	}
+} 
+
+
+/* Breakpoint 650px 
+-------------------------*/ 
+@media (min-width: 0px) and (max-width: 650px) {
+	
+	#ls_config #ls_infowindowMobile {
+		font-size: 0.8em;
+	}
+	
+	#ls_config #ls_modbutton_left {
+		display: none;
+	}
+	#ls_config #ls_modbutton_right {
+		display: none;
+	}
+	#ls_config #ls_modbutton {
+		height: 40px;
+	}
+	#ls_config #ls_modbutton_center {
+		float: none;
+		margin: auto;
+		padding: 5px 0px 0px 0px;
+		border: none;
+		border-left: 2px solid black;
+		border-right: 2px solid black;
+	}
+	#ls_config #ls_modbutton_backpanel {
+		left: -70px;
+		width: 400px;
+	}
+	
+	
+	
+	#ls_config .ls_select_itemcontainer {
+		font-size: 0.8em;
+	}
+	
+	
+	
+	#ls_config #ls_select_inspectMenu {
+		height: 30px;
+		font-size: 0.6em;
+	}
+	
+	#ls_config #ls_select_inspectSelection {
+		height: calc(100% - 30px);
+	}
+	
+	#ls_config #ls_select_inspect_description {
+		padding: 5px 0 0 0;
+	}
+	
+	#ls_config #ls_select_inspect_description_content {
+		font-size: 0.8em;
+	}
+	
+	#ls_config #ls_select_inspect_modContainer_title {
+		display: none;
+	}
+	
+	#ls_config #ls_select_inspect_modInnerContainer {
+		height: calc(100% - 10px);
+	}
+	
+	#ls_config #ls_select_inspect_modColorContainer {
+		padding: 8px 5% 0 10%;
+	}
+	
+	#ls_config #ls_select_inspect_ok_button_content h1 {
+		padding: 2% 0 0 30px;
+		font-size: 1.5em;
+	}
+	
+	#ls_config #ls_select_inspect_ok_button {
+		width: 100%;
+	}
+	
+	
+	
+	#ls_config #ls_config_partName {
+		height: 30px;
+	}
+	#ls_config #ls_config_partInfo h3 {
+		display: none;
+	}
+	#ls_config #ls_config_partInfo_field {
+		font-size: 1.0em;
+	}
+	#ls_config #ls_config_delete {
+		opacity: 0;
+	}
+	
+	#ls_config #ls_config_modInfo h3 {
+		font-size: 1em;
+	}
+	
+	#ls_config #ls_config_button_flip img {
+		height: 20px;
+		width: 20px;
+	}
+	#ls_config .ls_config_panel_colorButton img {
+		width: 25px;
+		height: 25px;
+	}
+	
+}

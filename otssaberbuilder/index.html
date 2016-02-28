@@ -20,22 +20,71 @@
 		<div id="wrapper">
 			<div id="ls_config">
 				<div id="ls_menubar">
-					<h1 class="ls_title">Unofficial OTS Saber Configuration Tool v1.3</h1>
+					<h1 class="ls_title">Unofficial OTS Saber Configuration Tool v1.0</h1>
 					<div id="ls_infowindow">
 						<div id="ls_infowindow_innercontainer">
-							<h2 id="ls_infoWindow-title">Build information</h2>
-							<div id="ls_partsCount_container">
-								<h2 id="ls_partsCount">Part count:</h2><p id="ls_partsCount_field">0</p>
+							<div id="ls_infowindow_innercontainer_left">
+								<h2 id="ls_infoWindow-title">Build information</h2>	
+								<div id="ls_getParts_container"><div id="ls_getParts_button"><div id="ls_getParts_button_icon"></div><div id="ls_getParts_button_title">Get parts</div></div></div>
 							</div>
+							<div id="ls_infowindow_innercontainer_right">
+								<div id="ls_partsCount_container">
+									<h2 id="ls_partsCount">Part count:</h2>
+									<p class="ls_partsCount_field">0</p>
+								</div>
+								<div id="ls_buildLength_container">
+									<h2 id="ls_buildLength">Build length:</h2>
+									<p class="ls_buildLength_field">NYA</p>
+								</div>
+								<div id="ls_buildPrice_container">
+									<h2 id="ls_buildPrice">Build price:</h2>
+									<p class="ls_buildPrice_field">NYA</p>
+								</div>
+							</div>							
 						</div>
 						<div id="ls_infowindow_edge"><div></div></div>
 					</div>
-					<div id="ls_menubutton-container">
-						<div id="ls_menubutton_random" class="ls_menubutton"></div>  
-						<div id="ls_menubutton_partslist" class="ls_menubutton"></div>  
-						<div id="ls_menubutton_background" class="ls_menubutton"></div>  
-						<div id="ls_menubutton_website" class="ls_menubutton"></div>  
+					
+					<div id="ls_infowindowMobile">
+						<h2 id="ls_partsCountMobile">Part count:</h2>
+						<p class="ls_partsCount_field">0</p>
+						<h2 id="ls_buildLengthMobile">Build length:</h2>
+						<p class="ls_buildLength_field">NYA</p>
+						<h2 id="ls_buildPriceMobile">Build price:</h2>
+						<p class="ls_buildPrice_field">NYA</p>
 					</div>
+					
+					<div id="ls_menubutton-container">
+						<div id="ls_menubutton_website" class="ls_menubutton">
+							<div id="ls_menubutton_website_title">Visit the</div>
+							<div id="ls_menubutton_website_logo"></div>
+							<div class="ls_menubutton_bottom">
+								<div class="ls_menubutton_bottom_left"><div></div></div>
+								<div class="ls_menubutton_bottom_center"></div>	
+								<div class="ls_menubutton_bottom_right"><div></div></div>		
+							</div>
+						</div>  
+						<div id="ls_menubutton_background" class="ls_menubutton">
+							<div class="ls_menubutton_icon_container"><div class="ls_menubutton_icon"></div></div>
+							<div class="ls_menubutton_title">Background</div>
+							<div class="ls_menubutton_bottom">
+								<div class="ls_menubutton_bottom_left"><div></div></div>
+								<div class="ls_menubutton_bottom_center"></div>	
+								<div class="ls_menubutton_bottom_right"><div></div></div>		
+							</div>	
+						</div>  
+						
+						<div id="ls_menubutton_info" class="ls_menubutton">
+							<div class="ls_menubutton_icon_container"><div class="ls_menubutton_icon"></div></div>
+							<div class="ls_menubutton_title">Info</div>
+							<div class="ls_menubutton_bottom">
+								<div class="ls_menubutton_bottom_left"><div></div></div>
+								<div class="ls_menubutton_bottom_center"></div>	
+								<div class="ls_menubutton_bottom_right"><div></div></div>		
+							</div>	
+						</div> 
+					</div>
+					<div id="ls_mobile_menu"></div>
 				</div>
 				<div id="ls_canvas">
 					<div id="ls_paint_container">
@@ -66,7 +115,7 @@
 					</div>
 				</div>
 				<div id="ls_author">
-					<p>&copy; 2016 Marvin Tobisch</p>
+					<p>by Marvin Tobisch</p>
 				</div>
 			</div>
 		</div>

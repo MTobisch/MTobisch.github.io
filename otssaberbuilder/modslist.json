@@ -31,9 +31,6 @@
 		"colors": ["none"],
 		"parts": ["chassis_crystal"]
 	},
-	
-	
-	
 	"hiltcap_small": {
 		"modName": "hiltcap_small",
 		"prettyName": "Small Hiltcap",
@@ -52,7 +49,7 @@
 	},
 	"emitter_angle": {
 		"modName": "emitter_angle",
-		"prettyName": "Angled emitter accent",
+		"prettyName": "Angled accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/emitter_angle_",
 		"colors": ["brass", "chrome", "chrome_black"],
@@ -60,7 +57,7 @@
 	},
 	"emitter_curve": {
 		"modName": "emitter_curve",
-		"prettyName": "Curved emitter accent",
+		"prettyName": "Curved accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/emitter_curve_",
 		"colors": ["brass", "chrome", "chrome_black"],
@@ -68,7 +65,7 @@
 	},
 	"emitter_windows": {
 		"modName": "emitter_windows",
-		"prettyName": "Windowed emitter accent",
+		"prettyName": "Windowed accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/emitter_windows_",
 		"colors": ["brass", "chrome", "chrome_black"],
@@ -76,7 +73,7 @@
 	},
 	"foregrip_short_solid": {
 		"modName": "foregrip_short_solid",
-		"prettyName": "Short solid foregrip accent",
+		"prettyName": "Short solid accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/foregrip_short_solid_",
 		"colors": ["brass", "chrome", "chrome_black"],
@@ -84,7 +81,7 @@
 	},
 	"foregrip_short_slots": {
 		"modName": "foregrip_short_slots",
-		"prettyName": "Short slotted foregrip accent",
+		"prettyName": "Short slotted accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/foregrip_short_slots_",
 		"colors": ["brass", "chrome", "chrome_black"],
@@ -92,7 +89,7 @@
 	},
 	"foregrip_long_solid": {
 		"modName": "foregrip_long_solid",
-		"prettyName": "Long solid foregrip accent",
+		"prettyName": "Long solid accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/foregrip_long_solid_",
 		"colors": ["brass", "chrome", "chrome_black"],
@@ -100,7 +97,7 @@
 	},
 	"foregrip_long_open": {
 		"modName": "foregrip_long_open",
-		"prettyName": "Long open foregrip accent",
+		"prettyName": "Long open accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/foregrip_long_open_",
 		"colors": ["brass", "chrome", "chrome_black"],
@@ -108,7 +105,7 @@
 	},
 	"reargrip_solid": {
 		"modName": "reargrip_solid",
-		"prettyName": "Solid reargrip accent",
+		"prettyName": "Solid accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/reargrip_solid_",
 		"colors": ["brass", "chrome", "chrome_black"],
@@ -116,7 +113,7 @@
 	},
 	"reargrip_open_flute": {
 		"modName": "reargrip_open_flute",
-		"prettyName": "Fluted reargrip accent",
+		"prettyName": "Fluted accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/reargrip_open_flute_",
 		"colors": ["brass", "chrome", "chrome_black"],
@@ -124,7 +121,7 @@
 	},
 	"reargrip_window": {
 		"modName": "reargrip_window",
-		"prettyName": "Windowed reargrip accent",
+		"prettyName": "Windowed accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/reargrip_window_",
 		"colors": ["brass", "chrome", "chrome_black"],
@@ -132,7 +129,7 @@
 	},
 	"pommel_closed": {
 		"modName": "pommel_closed",
-		"prettyName": "Closed pommel accent",
+		"prettyName": "Closed accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/pommel_closed_",
 		"colors": ["brass", "chrome", "chrome_black"],
@@ -140,7 +137,7 @@
 	},
 	"pommel_window": {
 		"modName": "pommel_window",
-		"prettyName": "Windowed pommel accent",
+		"prettyName": "Windowed accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/pommel_window_",
 		"colors": ["brass", "chrome", "chrome_black"],
@@ -148,7 +145,7 @@
 	},
 	"pommel_angled": {
 		"modName": "pommel_angled",
-		"prettyName": "Angled pommel accent",
+		"prettyName": "Angled accent",
 		"modType": "accent",
 		"img_url": "models/mods/accents/pommel_angled_",
 		"colors": ["brass", "chrome", "chrome_black"],

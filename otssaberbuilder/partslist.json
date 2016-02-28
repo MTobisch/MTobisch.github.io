@@ -12,7 +12,7 @@
 		"modAttachment": "none",
 		"modOffset": 0,
 		"subCat": "LED String",
-		"info": "A normal length LED string blade."
+		"info": "A normal length Firaxan LED string blade."
 	},
 	"shroud_star": {
 		"partName": "shroud_star",
@@ -132,7 +132,7 @@
 		"modAttachment": "left",
 		"modOffset": 334,
 		"subCat": "Short",
-		"info": "The normal chassis without a crystal chamber. Make sure to switch through the mods to add a battery and/or sound."
+		"info": "The normal chassis without a crystal chamber. Make sure to select a mod to add a battery and/or sound."
 	},
 	"chassis_crystal": {
 		"partName": "chassis_crystal",
@@ -147,7 +147,7 @@
 		"modAttachment": "left",
 		"modOffset": 334,
 		"subCat": "Long",
-		"info": "An advanved chassis with a crystal chamber. Make sure to switch through the mods to add a battery and/or sound."
+		"info": "An advanved chassis with a crystal chamber. Make sure to select a mod to add a battery and/or sound."
 	},
 	"chassis_none": {
 		"partName": "chassis_none",
@@ -226,7 +226,7 @@
 	},
 	"foregrip_long_ribbed_window": {
 		"partName": "foregrip_long_ribbed_window",
-		"prettyName": "Long ribbed, windowed foregrip",
+		"prettyName": "Long ribbed, window foregrip",
 		"partType": "foregrip",
 		"leftConnector": [["female", "cover_short"], ["female", "cover_long"]],
 		"rightConnector": [["male", "rear"]],
@@ -256,7 +256,7 @@
 	},
 	"foregrip_long_blank_reveal": {
 		"partName": "foregrip_long_blank_reveal",
-		"prettyName": "Long blank, revealing foregrip",
+		"prettyName": "Long blank, reveal foregrip",
 		"partType": "foregrip",
 		"leftConnector": [["female", "cover_short"], ["female", "cover_long"]],
 		"rightConnector": [["male", "rear"]],
@@ -286,7 +286,7 @@
 	},
 	"reargrip_window": {
 		"partName": "reargrip_window",
-		"prettyName": "Windowed reargrip",
+		"prettyName": "Window reargrip",
 		"partType": "reargrip",
 		"leftConnector": [["female", "rear"]],
 		"rightConnector": [["female", "rear"]],
@@ -481,7 +481,7 @@
 	},
 	"connector_sound_windows": {
 		"partName": "connector_sound_windows",
-		"prettyName": "Windowed Connector",
+		"prettyName": "Window Connector",
 		"partType": "connector",
 		"leftConnector": [["male", "rear"]],
 		"rightConnector": [["male", "rear"]],
