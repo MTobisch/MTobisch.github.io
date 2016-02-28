@@ -471,8 +471,14 @@ jQuery(document).ready(function($){
 			
 			Painter.prototype.addImage = function (part, side) {				
 				if (current_lightsaber.partCount == 0) {
+			
+					// Center image and build container 
+					var leftPos = Math.round((part.partWidth*ui.getZoom() / 2)*-1); // Part horizontal
+					var canvasHeight = $("#ls_canvas").height(); // Build container vertical
+					var buildContainerHeight = $("#ls_build_container").height();
+					$("#ls_build_container").css("top", canvasHeight/2 - buildContainerHeight/2);
+
 					// Paint part
-					var leftPos = Math.round((part.partWidth*ui.getZoom() / 2)*-1); // Center image
 					this.buildContainer.append("<div id='" + part.id + "' class='ls_part ls_type_" + part.partType + " ls_partname_" + part.partName + "' style='left:" + leftPos + ";'><div class='ls_imgcontainer ls_imgcontainer_"+  part.partName +" ls_config_active' style='top: 0px;'><img class='ls_img ls_img_"+ part.partName +"' src='" + part.img_url + part.colors[part.activeColor] + ".png'></div></div>");	
 					$("#ls_build_container > div").last().width(part.partWidth*ui.getZoom()); // Manually set width, b/c child elements are all absolute
 					$("#ls_build_container > div").last().find(".ls_imgcontainer").width(part.partWidth*ui.getZoom());
@@ -1100,12 +1106,6 @@ jQuery(document).ready(function($){
 					}
 
 				})(this);
-				
-				var centerBuildContainer = (function() {
-					var canvasHeight = $("#ls_canvas").height();
-					var buildContainerHeight = $("#ls_build_container").height();
-					$("#ls_build_container").css("top", canvasHeight/2 - buildContainerHeight/2);
-				})();
 
 				this.buttons.buttonleft_plus.on("click", function(e) {
 					e.preventDefault();
@@ -1229,7 +1229,6 @@ jQuery(document).ready(function($){
 				// Add pretty scrollbar
 				$("#ls_dialogue_content").mCustomScrollbar({ 
 					scrollInertia: 500,
-					theme: "rounded-dots",
 					mouseWheel:{ deltaFactor: 200 }
 				});
 			}
@@ -1612,7 +1611,6 @@ jQuery(document).ready(function($){
 				}
 				// Add pretty scrollbar if item amount exceeds height
 				$("#ls_select_selection").mCustomScrollbar({ 
-					theme: "rounded-dots",
 					scrollInertia: 500,
 					mouseWheel:{ deltaFactor: 200 }
 				});
@@ -1667,7 +1665,6 @@ jQuery(document).ready(function($){
 				// Add pretty scrollbar if item amount exceeds height
 				$("#ls_select_inspect_modInnerContainer").mCustomScrollbar({ 
 					scrollInertia: 500,
-					theme: "rounded-dots",
 					mouseWheel:{ deltaFactor: 200 }
 				});
 				$('#ls_select_inspect_modInnerContainer .ls_select_itemcontainer').first().addClass("ls_select_inspect_selected");
