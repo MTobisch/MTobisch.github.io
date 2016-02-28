@@ -36,7 +36,7 @@ jQuery(document).ready(function($){
 				// Initialize list with all possible parts
 				var preloadAssets = (function() {
 					$("#ls_preload_assets").append("<img id='ls_preload_img_loadicon' src='assets/loadicon.gif'>");
-					$("#ls_preload_assets").append("<img id='ls_preload_img_background' src='assets/blueprint.jpg'>");
+					$("#ls_preload_assets").append("<img id='ls_preload_img_background' src='assets/backgrounds/blueprint.jpg'>");
 				})();
 				
 				this.allParts = (function () {
@@ -169,12 +169,7 @@ jQuery(document).ready(function($){
 		  			if(this.complete) $(this).load();
 					});
 				})();
-				
-				var centerBuildContainer = (function() {
-					var canvasHeight = $("#ls_canvas").height();
-					var buildContainerHeight = $("#ls_build_container").height();
-					$("#ls_build_container").css("top", canvasHeight/2 - buildContainerHeight/2);
-				})();
+
 			}
 			
 			Initializer.prototype.centerBuildContainer = function() {
@@ -1085,6 +1080,32 @@ jQuery(document).ready(function($){
 				}
 				this.currentZoom = 12;
 				this.currentBackground = 0;
+				
+				var setInitialZoom = (function(that) {
+					if  ($(window).width() <= 1200 ) {
+						that.currentZoom = 10;
+						$("#ls_build_container").height(250);
+					}
+					if  ($(window).width() <= 900 ) {
+						that.currentZoom = 8;
+						$("#ls_build_container").height(200);
+					}
+					if  ($(window).width() <= 650 ) {
+						that.currentZoom = 6;
+						$("#ls_build_container").height(150);
+					}
+					if  ($(window).width() <= 500 ) {
+						that.currentZoom = 4;
+						$("#ls_build_container").height(100);
+					}
+
+				})(this);
+				
+				var centerBuildContainer = (function() {
+					var canvasHeight = $("#ls_canvas").height();
+					var buildContainerHeight = $("#ls_build_container").height();
+					$("#ls_build_container").css("top", canvasHeight/2 - buildContainerHeight/2);
+				})();
 
 				this.buttons.buttonleft_plus.on("click", function(e) {
 					e.preventDefault();
@@ -1150,6 +1171,7 @@ jQuery(document).ready(function($){
 			User_Interface.prototype.getZoom = function() {
 				return (1 / 20) * this.currentZoom;
 			}
+			
 			
 			User_Interface.prototype.disableButtons = function(state) {
 				if (state == true || state == null) {

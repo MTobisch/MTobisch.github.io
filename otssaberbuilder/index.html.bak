@@ -46,7 +46,12 @@
 					</div>
 					
 					<div id="ls_infowindowMobile">
-						
+						<h2 id="ls_partsCountMobile">Part count:</h2>
+						<p class="ls_partsCount_field">0</p>
+						<h2 id="ls_buildLengthMobile">Build length:</h2>
+						<p class="ls_buildLength_field">NYA</p>
+						<h2 id="ls_buildPriceMobile">Build price:</h2>
+						<p class="ls_buildPrice_field">NYA</p>
 					</div>
 					
 					<div id="ls_menubutton-container">
