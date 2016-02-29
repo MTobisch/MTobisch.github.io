@@ -491,4 +491,22 @@
 		height: 23px;
 	}
 	
+	#ls_config #ls_dialogue_panel {
+		font-size: 0.9em;
+	}
+	
+		#ls_config #ls_dialogue_title {
+			height: 20px;
+			padding: 5px 0px;
+		}
+		
+		#ls_config .ls_dialogue_partslist_part {
+			height: 25px;
+		}
+		
+		#ls_config .ls_dialogue_partslist_mod {
+			height: 25px;
+		}
+	
+	
 }
