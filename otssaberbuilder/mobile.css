@@ -457,6 +457,7 @@
 	
 	#ls_config #ls_config_partName {
 		height: 30px;
+		font-size: 0.8em;
 	}
 	#ls_config #ls_config_partInfo h3 {
 		display: none;
