@@ -106,7 +106,7 @@
 	},
 	"emitter_standard": {
 		"partName": "emitter_standard",
-		"prettyName": "Basic Emitter",
+		"prettyName": "Shroud adapter",
 		"partType": "emitter",
 		"leftConnector": [["male", "shroud"]],
 		"rightConnector": [["female", "emitter"]],

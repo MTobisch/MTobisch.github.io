@@ -371,10 +371,11 @@
 	#ls_config #ls_modbutton_center {
 		float: none;
 		margin: auto;
-		padding: 5px 0px 0px 0px;
+		padding: 7px 5px 0px 5px;
 		border: none;
 		border-left: 2px solid black;
 		border-right: 2px solid black;
+		font-size: 1.3em;
 	}
 	#ls_config #ls_modbutton_backpanel {
 		left: -70px;
