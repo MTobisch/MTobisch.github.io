@@ -4,7 +4,7 @@
 /* Breakpoint 1600px 
 -------------------------*/ 
 
-@media (min-width: 1470px) and (max-width: 1600px) { 
+@media (min-device-width: 1470px) and (max-device-width: 1600px) { 
 	
 	#ls_config .ls_title {
 		font-size: 1.0em;
@@ -15,7 +15,7 @@
 /* Breakpoint 1470px 
 -------------------------*/ 
 
-@media (min-width: 0px) and (max-width: 1470px) { 
+@media (min-device-width: 0px) and (max-device-width: 1470px) { 
 	
 	#ls_config .ls_title {
 		display: none;
@@ -25,7 +25,7 @@
 /* Breakpoint 1200px 
 -------------------------*/ 
 
-@media (min-width: 0px) and (max-width: 1200px) { 
+@media (min-device-width: 0px) and (max-device-width: 1200px) { 
 	
 	#ls_config .ls_title {
 		display: inline;
@@ -56,8 +56,6 @@
 	#ls_config #ls_infowindow {
 		width: 350px;
 	}
-	
-	
 	
 	#ls_config #ls_select_container	 {
 		width: 100%;
@@ -128,7 +126,7 @@
 
 /* Breakpoint 900px 
 -------------------------*/ 
-@media (min-width: 0px) and (max-width: 900px), (max-height: 500px) {
+@media (min-device-width: 0px) and (max-device-width: 900px), (max-device-height: 500px) {
 	
 	#ls_config #ls_canvas {
 		height: calc(100% - 42px);
@@ -329,7 +327,7 @@
 
 /* Breakpoint 650px 
 -------------------------*/ 
-@media (min-width: 0px) and (max-width: 650px) {
+@media (min-device-width: 0px) and (max-device-width: 650px) {
 	
 	#ls_config #ls_canvas {
 		height: calc(100% - 32px);
@@ -351,6 +349,7 @@
 		#ls_config .ls_mobile_menu_item {
 			height: 40px;
 			padding: 10px 0px 0px 20px;
+			font-size: 0.9em;
 		}	
 	
 	
