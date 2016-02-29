@@ -336,6 +336,11 @@
 	#ls_config  #ls_menubar {
 		height: 30px;
 	}
+	
+	#ls_config #ls_infowindowMobile {
+		font-size: 0.8em;
+	}
+	
 		#ls_config #ls_infowindowMobile h2 {
 			margin: 7px 0 0 20px;
 		}
@@ -353,10 +358,6 @@
 		}	
 	
 	
-	
-	#ls_config #ls_infowindowMobile {
-		font-size: 0.8em;
-	}
 	
 	#ls_config #ls_modbutton_left {
 		display: none;
@@ -424,6 +425,19 @@
 		padding: 8px 5% 0 10%;
 	}
 	
+		#ls_config #ls_select_inspect_modColorContainer_title {
+			font-size: 1.1em;
+			width: 90px;
+		}
+		
+		#ls_config #ls_select_inspect_modcolorInnerContainer {
+			width: calc(100% - 90px);
+		}
+		
+		#ls_config #ls_select_inspect_modColorContainer #ls_select_inspect_modColor_none {
+			margin: -5px 5px 5px 0px;
+		}
+	
 	#ls_config #ls_select_inspect_ok_button_content h1 {
 		padding: 2% 0 0 30px;
 		font-size: 1.5em;
@@ -463,6 +477,7 @@
 	}
 	#ls_config #ls_config_partInfo_field {
 		font-size: 1.0em;
+		padding: 3px 0px 0px 0px;
 	}
 	#ls_config #ls_config_delete {
 		opacity: 0;

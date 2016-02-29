@@ -559,10 +559,12 @@ body {
 		font-size: 1.5em;
 		font-weight: bold;
 		text-align: center;
+		color: #777;
 		background-color: orange;
 		border-top: 2px solid black;
 		cursor: pointer;
 		z-index: 100;
+		pointer-events: none;
 	}
 
 	.ls_modbutton_edge {

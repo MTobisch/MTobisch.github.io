@@ -1,5 +1,6 @@
 // Unofficial OTS Saber Configurator 1.0
 // by 2016 Marvin Tobisch
+// facebook.com/marvin.tobisch
 
 // This tool lets you configure a LED saber from Ken Hampton's OTS lightsaber product line. Current features include:
 // - Mix and match almost any saber parts in whatever order
@@ -1126,11 +1127,13 @@ jQuery(document).ready(function($){
 				this.buttons.buttonleft_minus.on("click", function(e) {
 					e.preventDefault();
 					current_lightsaber.removePart("front");
+					ui.isConfigButtonAvailable() // Check config button
 					ui.updateInfoWindow();
 				});
 				this.buttons.buttonright_minus.on("click", function(e) {
 					e.preventDefault();
 					current_lightsaber.removePart("back");
+					ui.isConfigButtonAvailable() // Check config button
 					ui.updateInfoWindow();
 				});
 				this.buttons.buttonmod.on("click", function(e) {
@@ -1182,6 +1185,16 @@ jQuery(document).ready(function($){
 					$("#ls_buttons").css("pointer-events","auto");
 				}
 			}			
+			
+			User_Interface.prototype.isConfigButtonAvailable = function () {
+				if (current_lightsaber.currentBuild.length > 0) {
+					$("#ls_modbutton_center").css("color", "black");
+					$("#ls_modbutton_center").css("pointer-events", "auto");
+				} else {
+					$("#ls_modbutton_center").css("color", "#777");
+					$("#ls_modbutton_center").css("pointer-events", "none");
+				}
+			}
 			
 			User_Interface.prototype.updateInfoWindow = function () {
 				var partCount = current_lightsaber.getPartCount();
@@ -1831,6 +1844,7 @@ jQuery(document).ready(function($){
 		 		ui.select.reset();
 		 		ui.updateInfoWindow();
 		 		current_lightsaber.getBuild();	
+		 		ui.isConfigButtonAvailable() // Check config button
 		 		ui.disableButtons(false); // Reactivate side buttons	
 			}
 			
@@ -2247,6 +2261,8 @@ jQuery(document).ready(function($){
 						ui.mod.startConfig(current_lightsaber.currentBuild[current_lightsaber.currentBuild.length-1].id);
 					}	
 				}
+				ui.isConfigButtonAvailable() // Check config button
+				ui.updateInfoWindow();
 			}
 			
 			User_Interface_Mod.prototype.acceptConfig = function (part_id) {
@@ -2254,6 +2270,7 @@ jQuery(document).ready(function($){
 				this.moddingInProgress = false;
 				swapPart = ui.mod.fetchActivePart(part_id);
 				current_lightsaber.acceptConfig(part_id, swapPart);
+				ui.isConfigButtonAvailable() // Check config button
 				ui.updateInfoWindow();
 			}
 				
