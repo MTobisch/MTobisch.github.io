@@ -335,7 +335,7 @@
 		height: calc(100% - 32px);
 	}
 	
-	#ls_config  #ls_menubar {
+	#ls_config #ls_menubar {
 		height: 30px;
 	}
 		#ls_config #ls_infowindowMobile h2 {
@@ -344,16 +344,6 @@
 		#ls_config #ls_infowindowMobile p {
 			margin: 7px 0 0 10px;
 		}
-		
-	#ls_config #ls_mobile_menu_list {
-		bottom: -162px;
-	}	
-		#ls_config .ls_mobile_menu_item {
-			height: 40px;
-			padding: 10px 0px 0px 20px;
-		}	
-	
-	
 	
 	#ls_config #ls_infowindowMobile {
 		font-size: 0.8em;

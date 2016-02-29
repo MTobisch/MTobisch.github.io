@@ -21,13 +21,6 @@
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="assets/favicons/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
-		<!-- Social Media -->
-		<meta property="og:site_name" content="Unofficial OTS Saber Configurator"/>
-		<meta property="og:title" content="Unofficial OTS Saber Configurator"/>
-		<meta property="og:description" content="Preview the saber of your dreams from the HHCLS OTS saber line with this handy tool. Happy building!"/>
-		<meta property="og:image" content="assets/previewimage.jpg">
-		<meta property="og:url" content="mtobisch.github.io/otssaberbuilder">
-		<meta property="og:type" content="product.item"/>
 		<!-- Includes -->
 		<link rel="stylesheet" href="styles.css?v=1.0">
 		<link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">

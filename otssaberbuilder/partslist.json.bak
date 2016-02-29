@@ -132,7 +132,7 @@
 		"modAttachment": "left",
 		"modOffset": 334,
 		"subCat": "Short",
-		"info": "The normal chassis without a crystal chamber. Make sure to add power and/or sound."
+		"info": "The normal chassis without a crystal chamber. Make sure to select a mod to add a battery and/or sound."
 	},
 	"chassis_crystal": {
 		"partName": "chassis_crystal",
@@ -147,7 +147,7 @@
 		"modAttachment": "left",
 		"modOffset": 334,
 		"subCat": "Long",
-		"info": "An advanved chassis with a crystal chamber. Make sure to add power and/or sound."
+		"info": "An advanved chassis with a crystal chamber. Make sure to select a mod to add a battery and/or sound."
 	},
 	"chassis_none": {
 		"partName": "chassis_none",

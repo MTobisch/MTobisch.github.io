@@ -1778,6 +1778,7 @@ jQuery(document).ready(function($){
 				}
 				
 				// Paint preview
+				$("#ls_select_inspect_pictureInnerContainer").width("");
 				$("#ls_select_inspect_pictureInnerContainer").append("<img id='ls_select_inspect_image' src='"+ ui.select.selectedPart.img_url + ui.select.selectedPart.colors[partColorIndex] +".png'>");
 				$("#ls_select_inspect_pictureInnerContainer").width(ui.select.selectedPart.partWidth * ($("#ls_select_inspect_pictureContainer").height() / 500));
 				

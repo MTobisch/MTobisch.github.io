@@ -1,0 +1,83 @@
+jQuery(document).ready(function($){
+	if ($("#custom_galerie").length) {
+		
+		var custom_galerie = {
+			zaehler: 0,
+			slides: (function() {
+				var testarray = [];
+				$('#custom_galerie_content > div').each(function() {
+					testarray.push($(this));
+				})
+				return testarray;
+			}()),
+			getSlide: function(mod) {
+				var mod = mod || 0;
+				var zaehler = this.zaehler + mod;
+				
+				if (zaehler > this.slides.length-1) {
+					zaehler = 0;					
+				}
+				if (zaehler < 0) {
+					zaehler = this.slides.length-1;
+				}
+				return zaehler;
+			},
+			nextSlide: function() {
+				this.zaehler += 1;
+				
+				if (this.zaehler > this.slides.length-1) {
+					this.zaehler = 0;					
+				}
+			},
+			previousSlide: function() {
+				this.zaehler -= 1;
+				
+				if (this.zaehler < 0) {
+					this.zaehler = this.slides.length-1;					
+				}
+			},
+			nachRechts: function() {
+				var currentSlide = this.slides[this.getSlide()]; // Hauptslide aus dem Weg räumen
+				currentSlide.css({transition: "1s ease 0s", left: "-800px"});		
+				
+				this.nextSlide();
+				currentSlide = this.slides[this.getSlide()]; // Nächster Hauptslide in die Mitte
+				currentSlide.css({transition: "1s ease 0s", left: "0px"});
+				
+				var prepSlide = this.slides[this.getSlide(1)]; // Nächsten Slide "nachladen", damit links und rechts immer die korrekten Slides warten
+				prepSlide.css({transition: "0s", left: "800px" })
+			},
+			nachLinks: function() {
+				var currentSlide = this.slides[this.getSlide()];
+				currentSlide.css({transition: "1s ease 0s", left: "800px"});		
+				
+				this.previousSlide();
+				currentSlide = this.slides[this.getSlide()];
+				currentSlide.css({transition: "1s ease 0s", left: "0px"});
+				
+				var prepSlide = this.slides[this.getSlide(-1)];
+				prepSlide.css({transition: "0s", left: "-800px" })
+			},
+			registerListeners: (function() {
+				$("#custom_galerie_nachlinks a").on('click', function(event){
+					event.preventDefault(); 
+					custom_galerie.nachLinks();
+					var button = $(this);
+					button.css("pointer-events", "none");
+			    setTimeout(function() {
+			    	button.css("pointer-events", "auto");
+			    },1000);
+				});
+				$("#custom_galerie_nachrechts a").on('click', function(event){
+					event.preventDefault(); 
+					custom_galerie.nachRechts();
+					var button = $(this);
+					button.css("pointer-events", "none");
+			    setTimeout(function() {
+			    	button.css("pointer-events", "auto");
+			    },1000);
+				});
+			})()
+		}
+	}	
+});

@@ -1,0 +1,157 @@
+{
+	"chassis_standard_power": {
+		"modName": "chassis_standard_power",
+		"prettyName": "Power",
+		"modType": "chassis",
+		"img_url": "models/mods/chassis/chassis_standard_power_",
+		"colors": ["none"],
+		"parts": ["chassis_standard"]
+	},
+	"chassis_standard_power_and_sound": {
+		"modName": "chassis_standard_power_and_sound",
+		"prettyName": "Power + Sound",
+		"modType": "chassis",
+		"img_url": "models/mods/chassis/chassis_standard_power_and_sound_",
+		"colors": ["none"],
+		"parts": ["chassis_standard"]
+	},
+	"chassis_crystal_power": {
+		"modName": "chassis_crystal_power",
+		"prettyName": "Power",
+		"modType": "chassis",
+		"img_url": "models/mods/chassis/chassis_crystal_power_",
+		"colors": ["none"],
+		"parts": ["chassis_crystal"]
+	},
+	"chassis_crystal_power_and_sound": {
+		"modName": "chassis_crystal_power_and_sound",
+		"prettyName": "Power + Sound",
+		"modType": "chassis",
+		"img_url": "models/mods/chassis/chassis_crystal_power_and_sound_",
+		"colors": ["none"],
+		"parts": ["chassis_crystal"]
+	},
+	
+	
+	
+	"hiltcap_small": {
+		"modName": "hiltcap_small",
+		"prettyName": "Small Hiltcap",
+		"modType": "hiltcap",
+		"img_url": "models/mods/hiltcap/hiltcap_small_",
+		"colors": ["silver", "black", "red"],
+		"parts": ["emitter_taper", "emitter_halo"]
+	},
+	"hiltcap_large": {
+		"modName": "hiltcap_large",
+		"prettyName": "Large Hiltcap",
+		"modType": "hiltcap",
+		"img_url": "models/mods/hiltcap/hiltcap_large_",
+		"colors": ["silver", "black", "red"],
+		"parts": ["emitter_taper", "emitter_halo"]
+	},
+	"emitter_angle": {
+		"modName": "emitter_angle",
+		"prettyName": "Angled emitter accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/emitter_angle_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["shroud_blank"]
+	},
+	"emitter_curve": {
+		"modName": "emitter_curve",
+		"prettyName": "Curved emitter accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/emitter_curve_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["shroud_blank"]
+	},
+	"emitter_windows": {
+		"modName": "emitter_windows",
+		"prettyName": "Windowed emitter accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/emitter_windows_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["shroud_blank"]
+	},
+	"foregrip_short_solid": {
+		"modName": "foregrip_short_solid",
+		"prettyName": "Short solid foregrip accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/foregrip_short_solid_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["foregrip_short_blank"]
+	},
+	"foregrip_short_slots": {
+		"modName": "foregrip_short_slots",
+		"prettyName": "Short slotted foregrip accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/foregrip_short_slots_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["foregrip_short_blank"]
+	},
+	"foregrip_long_solid": {
+		"modName": "foregrip_long_solid",
+		"prettyName": "Long solid foregrip accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/foregrip_long_solid_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["foregrip_long_blank_open", "foregrip_long_blank_reveal", "foregrip_long_blank_closed"]
+	},
+	"foregrip_long_open": {
+		"modName": "foregrip_long_open",
+		"prettyName": "Long open foregrip accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/foregrip_long_open_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["foregrip_long_blank_open", "foregrip_long_blank_reveal", "foregrip_long_blank_closed"]
+	},
+	"reargrip_solid": {
+		"modName": "reargrip_solid",
+		"prettyName": "Solid reargrip accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/reargrip_solid_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["reargrip_blank"]
+	},
+	"reargrip_open_flute": {
+		"modName": "reargrip_open_flute",
+		"prettyName": "Fluted reargrip accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/reargrip_open_flute_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["reargrip_blank"]
+	},
+	"reargrip_window": {
+		"modName": "reargrip_window",
+		"prettyName": "Windowed reargrip accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/reargrip_window_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["reargrip_blank"]
+	},
+	"pommel_closed": {
+		"modName": "pommel_closed",
+		"prettyName": "Closed pommel accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/pommel_closed_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["pommel_blank"]
+	},
+	"pommel_window": {
+		"modName": "pommel_window",
+		"prettyName": "Windowed pommel accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/pommel_window_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["pommel_blank"]
+	},
+	"pommel_angled": {
+		"modName": "pommel_angled",
+		"prettyName": "Angled pommel accent",
+		"modType": "accent",
+		"img_url": "models/mods/accents/pommel_angled_",
+		"colors": ["brass", "chrome", "chrome_black"],
+		"parts": ["pommel_blank"]
+	}
+}
