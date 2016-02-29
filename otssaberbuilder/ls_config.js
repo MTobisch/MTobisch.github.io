@@ -1782,10 +1782,11 @@ jQuery(document).ready(function($){
 				}
 				
 				if (mod !== "none") {				
-					$("#ls_select_inspect_pictureInnerContainer").append("<img id='ls_select_inspect_image_mod' src='"+ mod.img_url + mod.colors[modColorIndex] +".png'>");
-					var zoomMulti = $("#ls_select_inspect_image").height() / 500;
+					$("#ls_select_inspect_pictureInnerContainer").append("<img id='ls_select_inspect_image_mod' src='"+ mod.img_url + mod.colors[modColorIndex] +".png'>");					
+					var zoomMulti = $("#ls_select_inspect_pictureInnerContainer").width() / ui.select.selectedPart.partWidth; // Relative multiplier to calculate size difference
+					modHeight = 500 * zoomMulti;
 					modOffset = ui.select.selectedPart.modOffset * zoomMulti;
-					$("#ls_select_inspect_image_mod").height($("#ls_select_inspect_image").height());
+					$("#ls_select_inspect_image_mod").height(modHeight); // In case part longer than container and part height reduced to fit. Reduce mod height also to make it fit again.
 					if (ui.select.selectedPart.modAttachment == "left") {
 						$("#ls_select_inspect_image_mod").css("left", modOffset);
 					} 

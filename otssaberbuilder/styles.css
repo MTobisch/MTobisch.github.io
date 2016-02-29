@@ -881,12 +881,20 @@ body {
 	.ls_select_itemcontainer {
 		position: relative;
 		display: inline-block;
-		width: 262px;
-		height: 90px;
+		width: 25%;
+		height: 33%;
 		cursor: pointer;
 		overflow: hidden;
 		transition: 0.3s ease background-color;
 	}
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  	.ls_select_itemcontainer {
+			width: 262px;
+			height: 90px;
+		}
+	}
+	
+	
 		.ls_select_itemcontainer:hover{
 			background-color: rgba(150,150,150,0.5);
 		}
@@ -1127,8 +1135,15 @@ body {
 			}
 			
 				#ls_select_inspect_modInnerContainer .ls_select_itemcontainer {
-					width: 214px;
-					height: 60px;
+					width: 50%;
+					height: 50%;
+				}
+				
+				@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+					#ls_select_inspect_modInnerContainer .ls_select_itemcontainer {
+						width: 190px;
+						height: 90px;
+					}
 				}
 				
 				#ls_select_inspect_modInnerContainer .ls_select_itemcontainer img {
