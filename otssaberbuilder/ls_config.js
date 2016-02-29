@@ -1,28 +1,24 @@
-// LED Saber Config Tool - Prototype
-// Copyright (C) 2016 Marvin Tobisch
+// Unofficial OTS Saber Configurator 1.0
+// by 2016 Marvin Tobisch
 
 // This tool lets you configure a LED saber from Ken Hampton's OTS lightsaber product line. Current features include:
 // - Mix and match almost any saber parts in whatever order
 // - Saber staff customization
-// - Animations
-// - Zoom and Drag option
-//
-// As this is currently still a prototype though, the following is still planned:
-// - Most of the parts
-// - Big mod button, opening last modified part (chassis at start)
-// - Explode button
+// - Modding the build on the fly
+// - Zoom and Drag options, including mobile pinch
+// - Change background function
+// - Current saber parts printed
+// - Information about part count
+
+// As this is currently still a prototype, the following is still planned:
+// - Add information about saber length, cost when available
+// - Way to save builds
 // - Random lightsaber function
-// - Change background button?
-// - Current saber parts printed with links for purchase
-// - Button to save builds
-// - Link to Ken's website
-// - (Light up function?)
-// - info window showing saber length, cost, part numbers
-// - saber "breadcrumbs" on the left top
-// - Show part names in build, alternating up and down
-// - Better mobile support
-// - Better UI in general, preload Assets, open UI like slides
 // - Flip saber feature?
+
+// Note that this project is in no way officially associated with HHCLS or Ken Hampton and is a pure fan project to practice my web development skills. 
+// I hope you have as much fan using this app as I had building it.
+// May the force be with you!
 
 
 jQuery(document).ready(function($){
