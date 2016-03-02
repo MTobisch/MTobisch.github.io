@@ -1,4 +1,4 @@
-// Unofficial OTS Saber Configurator 1.0
+// Unofficial OTS Saber Configurator 1.0.1
 // by 2016 Marvin Tobisch
 // facebook.com/marvin.tobisch
 
@@ -540,22 +540,55 @@ jQuery(document).ready(function($){
 			}
 			
 			Painter.prototype.removeImage = function (part, side) {	
-				this.buildContainer.find("#" + part.id).remove();
+				// Make chassis_none shortly visible before removing to show it was there
+				if (part.partName === "chassis_none") {
+					this.buildContainer.find("#" + part.id).find("img").css("transition", "none");
+					this.buildContainer.find("#" + part.id).find("img").css("opacity", 1);
+				}
+				
+				// Remove animations
+				setTimeout(function() {
+					// Move last part down out of screen
+					if (current_lightsaber.currentBuild.length == 0) {
+						var distanceToBottom = $(window).height() - painter.buildContainer.find("#" + part.id).offset().top; // Get distance to bottom of screen
+						
+						painter.buildContainer.find("#" + part.id).css("transition", painter.transition);
+						painter.buildContainer.find("#" + part.id).css("top", distanceToBottom);
+						setTimeout(function() {
+							ini.centerBuildContainer();
+						}, painter.transition.split(" ")[1].slice(0,-1)*1000); // Wait transition delay */	
+					}
+					// Move other parts left and right and fade them out
+					else {	
+						if (side === "front") {
+							painter.buildContainer.find("#" + part.id).css("transition", painter.transition);
+							painter.buildContainer.find("#" + part.id).css("left", "-=500");
+						}
+						if (side === "back") {
+							painter.buildContainer.find("#" + part.id).css("transition", painter.transition);
+							painter.buildContainer.find("#" + part.id).css("left", "+=500");
+						}
+						painter.buildContainer.find("#" + part.id).find("img").css("transition", painter.transition);
+						painter.buildContainer.find("#" + part.id).find("img").css("opacity", 0);		
+					}
+				}, 25); // Timeout b/c of chassis_none opacity css
+				
+				// Reset start- and endPositions
 				if (side === "back") {
 					this.endPosition -= part.partWidth*ui.getZoom() - ((ui.getZoom() * part.rightClip) + (ui.getZoom() * part.leftClip));	// Subtract Clips from Part Width again
 				} else {
 					this.startPosition += part.partWidth*ui.getZoom() - ((ui.getZoom() * part.rightClip) + (ui.getZoom() * part.leftClip));	
 				}
 				
-				// If all parts gone, reset draggable container
-				if (current_lightsaber.partCount == 0) {
-					ini.centerBuildContainer();
-				}
+				// And lastly, remove part from html completely
+				setTimeout(function() {
+					painter.buildContainer.find("#" + part.id).remove();			
+				}, painter.transition.split(" ")[1].slice(0,-1)*1000); // Wait transition delay */
 			}
 			
 			Painter.prototype.animateAddImage = function (part, side) {
 				if (current_lightsaber.currentBuild.length == 1) { // First part
-					var initialPos = -500;
+					var initialPos = (painter.buildContainer.find("#" + part.id).offset().top + painter.buildContainer.find("#" + part.id).height())*-1; // Get distance to top of screen + part-height
 					var finalPos = 0;
 					
 					// Animation
@@ -581,6 +614,7 @@ jQuery(document).ready(function($){
 					
 					// Animation
 					$("#ls_build_container > div").last().css("left", initialPos);
+					$("#ls_build_container > div").last().css("top", 0);
 					$("#ls_build_container > div").last().css("transition", this.transition);
 					setTimeout(function(){ // Some timeout needed. If instant, browser will just take last left css value in row to save work. Stupid.
 						$("#ls_build_container > div").last().css("left", finalPos); 			
@@ -602,6 +636,7 @@ jQuery(document).ready(function($){
 					
 					// Animation
 					$("#ls_build_container > div").first().css("left", initialPos);
+					$("#ls_build_container > div").first().css("top", 0);
 					$("#ls_build_container > div").first().css("transition", this.transition);
 					setTimeout(function(){ // Some timeout needed. If instant, browser will just take last left css value in row to save work. Stupid.
 						$("#ls_build_container > div").first().css("left", finalPos); 
@@ -617,13 +652,6 @@ jQuery(document).ready(function($){
 						$("#" + part.id + " .ls_imgcontainer .ls_img_chassis_none").css("opacity", 0);
 					}, 30);
 				}
-				
-				/* Remove all transition css after animation complete
-				setTimeout(function() { 
-					$("#ls_build_container > div").each(function() {
-						$(this).css("transition", "");
-					});
-				}, painter.transition.split(" ")[1].slice(0,-1)*1000); // Wait transition delay */
 			}
 			
 			Painter.prototype.animateRemoveImage = function (side) {
@@ -1023,6 +1051,7 @@ jQuery(document).ready(function($){
 			}
 			
 			Painter_Mod.prototype.closeConfig = function (swapPart, oldPart) {
+				// Close config ui
 				$(".ls_img_chassis_none").css("opacity", 0);
 				$("#config_panel").remove();
 				setTimeout(function() { // Wait a bit, then if config is definitely closed, remove config container. Helps prevent flickering on quick close/open of config
@@ -1044,8 +1073,9 @@ jQuery(document).ready(function($){
 					}
 				});
 				
-				// Adjust startPosition for new part
-				painter.startPosition += (swapPart.leftClip - oldPart.leftClip)*ui.getZoom();			
+				// Adjust startPosition for new part. Makes sure parts with left clips (e.g. shrouds, flip chassis) don't move if left clip different. The rest of build flows around fixed selected part.
+				painter.startPosition += (swapPart.leftClip - oldPart.leftClip)*ui.getZoom(); 
+
 				// Reposition build parts
 				$(".ls_part").css("transition", painter.transition);
 				var loopPartPosition = painter.startPosition; 																			// Left starting point for repaint, gets updated for each part in row
@@ -1088,7 +1118,7 @@ jQuery(document).ready(function($){
 				}
 				this.currentZoom = 12;
 				this.currentBackground = 0;
-				this.zoomSpamCooldown = false;
+				this.zoomPinchScale = 1;
 				
 				var setInitialZoom = (function(that) {
 					if  ($(window).width() <= 1200 ) {
@@ -1414,18 +1444,17 @@ jQuery(document).ready(function($){
 	    var hammertime = new Hammer(document.getElementById('ls_paint_container'));
 	    hammertime.get('pinch').set({ enable: true });
 	   	hammertime.on("pinch", function(event) {
-	   		if (ui.zoomSpamCooldown) {
-	   			return;
-	   		}
-	   		ui.zoomSpamCooldown = true;
-				setTimeout(function() {
-					ui.zoomSpamCooldown = false;
-				}, 100);	
-	   		
-        if (event.scale > 1) { // up
+	
+        if (event.scale > ui.zoomPinchScale + 0.1) { // up
 		    	painter.changeZoom("in");
-				} else { // down
+		    	ui.zoomPinchScale = event.scale;
+				} 
+				if (event.scale < ui.zoomPinchScale - 0.05) { // down
 			  	painter.changeZoom("out");
+			  	ui.zoomPinchScale = event.scale;
+			  }
+			  if (event.scale.isFinal) {
+			  	ui.zoomPinchScale = 1;
 			  }
 	    });			
 			

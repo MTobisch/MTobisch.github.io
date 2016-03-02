@@ -162,7 +162,7 @@
 		"modAttachment": "none",
 		"modOffset": 0,
 		"subCat": "none",
-		"info": "If you are seeing this part as the only option, your saber is likely too short to support two chassis. Try adding a connector! (Using no chassis is not recommended)"
+		"info": "If you are seeing this part as the only option, your saber is likely too short to support two chassis. Try adding a connector!"
 	},
 	"foregrip_short_ribbed": {
 		"partName": "foregrip_short_ribbed",

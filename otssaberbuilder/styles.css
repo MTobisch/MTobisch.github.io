@@ -11,7 +11,6 @@ body {
 }
 
 #wrapper {
-	min-width: 350px;
 	margin: auto auto;
 }
 
@@ -490,6 +489,10 @@ body {
 		color: orange;
 		font-size: 1.1em;
 	}
+	
+	.infowindowMobile_textset_small {
+		display: none;
+	}
 
 
 #ls_mobile_menu {
@@ -566,6 +569,10 @@ body {
 		z-index: 100;
 		pointer-events: none;
 	}
+	
+		#ls_modbutton_center_textset_small {
+			display: none;
+		}
 
 	.ls_modbutton_edge {
 		position: relative;
@@ -1472,6 +1479,7 @@ body {
 	}
 	
 	#ls_config_partName {
+		position: relative;
 		float: left;
 		width: 100%;
 		height: 40px;
@@ -1533,6 +1541,7 @@ body {
 			text-align: center;
 			box-sizing: border-box;
 			font-weight: bold;
+			color: orange;
 			cursor: pointer;
 		}
 		

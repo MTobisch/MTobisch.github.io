@@ -126,7 +126,7 @@
 
 /* Breakpoint 900px 
 -------------------------*/ 
-@media (min-device-width: 0px) and (max-device-width: 900px), (max-device-height: 500px) {
+@media (min-device-width: 0px) and (max-device-width: 900px), (max-height: 500px) {
 	
 	#ls_config #ls_canvas {
 		height: calc(100% - 42px);
@@ -154,7 +154,7 @@
 	}
 	
 	#ls_config #ls_select_menu {
-		height: 38px;
+		height: 40px;
 	}
 		
 	#ls_config #ls_select_menu_topcat {
@@ -213,6 +213,10 @@
 		#ls_config #ls_select_inspect_colorContainer_title {
 			width: 70px;
 			margin: 0px 0px 0px 15px;
+		}
+		
+		#ls_config #ls_select_inspect_colorInnerContainer {
+			width: calc(100% - 85px);
 		}
 		
 		#ls_config #ls_select_inspect_colorContainer .ls_select_inspect_colorItem {
@@ -292,20 +296,17 @@
 	}
 	#ls_config #ls_config_partName_v_arrows {
 		display: none;
-	}
-	
+	}	
 	#ls_config #ls_config_button_flip {
 		height: 30%;
 		padding: 3px 10px 0px 10px;
 		margin: 0px 0px 25px 0px;
 	}
-	
-	
 	#ls_config #ls_config_modInfo {
 		height: 60%;
 	}
 	#ls_config .ls_config_panel_colorButton {
-		height: 30%;
+		height: 35%;
 		margin: 0;
 	}
 	#ls_config .ls_config_panel_colorButton p {
@@ -389,6 +390,13 @@
 	}
 	
 	
+	#ls_config #ls_select_menu {
+		height: 30px;
+	}
+		
+		#ls_config .ls_select_exit {
+			font-size: 1.45em;
+		}
 	
 	#ls_config #ls_select_inspectMenu {
 		height: 30px;
@@ -399,12 +407,27 @@
 		height: calc(100% - 30px);
 	}
 	
+	#ls_config #ls_select_inspect_colorContainer_title {
+		width: 60px;
+		margin: 0px 0px 0px 10px;
+	} 
+	
+	#ls_config #ls_select_inspect_colorInnerContainer {
+		width: calc(100% - 70px);
+		font-size: 0.8em;
+	}
+	
 	#ls_config #ls_select_inspect_description {
 		padding: 5px 0 0 0;
 	}
 	
+	#ls_config #ls_select_inspect_description_title {
+		width: 60px;
+		margin: 0px 0px 0px 10px;
+	}
+	
 	#ls_config #ls_select_inspect_description_content {
-		width: calc(100% - 85px);
+		width: calc(100% - 70px);
 		font-size: 0.8em;
 	}
 	
@@ -415,11 +438,6 @@
 		#ls_config #ls_select_inspect_modInnerContainer {
 			height: calc(100% - 10px);
 		}
-		
-			#ls_config #ls_select_inspect_modInnerContainer .ls_select_itemcontainer {
-				width: 100%;
-				height: 50%;
-			}
 	
 	#ls_config #ls_select_inspect_modColorContainer {
 		padding: 8px 5% 0 10%;
@@ -435,7 +453,8 @@
 		}
 		
 		#ls_config #ls_select_inspect_modColorContainer #ls_select_inspect_modColor_none {
-			margin: -5px 5px 5px 0px;
+			margin: -3px 5px 5px 0px;
+			font-size: 1em;
 		}
 	
 	#ls_config #ls_select_inspect_ok_button_content h1 {
@@ -522,6 +541,248 @@
 		#ls_config .ls_dialogue_partslist_mod {
 			height: 25px;
 		}
+}
+
+/* Breakpoint 450px 
+-------------------------*/
+@media (min-device-width: 0px) and (max-device-width: 450px) {
+	
+	#ls_config #ls_modbutton {
+		width: 100%;
+	}
+	
+		#ls_config #ls_modbutton_backpanel {
+			width: 100%;
+			left: 0;
+			border-radius: 0px;
+		}
+		
+		#ls_config #ls_modbutton_center {
+			width: 90px;
+		}
+		
+		#ls_config #ls_modbutton_center_textset_large {
+			display: none;
+		}
+		#ls_config #ls_modbutton_center_textset_small {
+			display: inline;
+		}
+		
+		#ls_config #ls_buttonsleft {
+			left: 10px;
+		}	
+			#ls_config #ls_buttonleft_plus {
+				margin: 0 5px 0 0;
+			}
+		#ls_config #ls_buttonsright {
+			right: 10px;
+		}	
+			#ls_config #ls_buttonright_plus {
+				margin: 0 0 0 5px;
+			}
+	
+	#ls_config #ls_mobile_menu {
+		width: 50px;
+	}
+	
+		#ls_config .infowindowMobile_textset_large {
+			display: none;
+		}
+		#ls_config .infowindowMobile_textset_small {
+			display: inline;
+		}
+		
+		#ls_config #ls_infowindowMobile h2 {
+			margin: 7px 0 0 10px;
+		}
+	
+	#ls_config .ls_select_itemcontainer {
+		width: 50%;
+		height: 25%
+	}
+	
+	#ls_config #ls_select_inspectMenubar {
+		width: calc(100% - 40px);
+	}
+	
+		#ls_config #ls_select_inspectMenubar h1 {
+			padding: 5px 0px 0px 15px;
+		}
+		#ls_config #ls_select_inspect_backButton {
+			width: 40px;
+		}
+		#ls_config .ls_select_exit {
+			width: 40px;
+			padding: 0 0 0 12px;
+			font-size: 1.6em;
+		}
+		#ls_config #ls_select_inspectMenu .ls_select_exit {
+			display: none;
+		}
+	
+		#ls_config #ls_select_inspect_description_content {
+			font-size: 0.8em;
+		}
+		
+	
+	#ls_config #ls_config_container {
+		height: 120px;
+	}
+	
+		#ls_config  #ls_config_container_left {
+			float: none;
+			position: absolute;
+			bottom: 0px;
+			width: 75%;
+			height: 35%;
+		}	
+			#ls_config #ls_config_button_flip {
+				display: inline-block;
+				vertical-align: top;
+				height: 100%;
+				width: 50%;	
+				padding: 8px 0px 5px 16px;	
+			}
+			#ls_config #ls_config_button_color {
+				display: inline-block;
+				vertical-align: top;
+				height: 100%;
+				width: 50%;
+				padding: 5px 0px 5px 6px;
+			}
+		#ls_config  #ls_config_container_center {
+			height: 60%;
+			width: 75%;
+		}
+			#ls_config #ls_config_partName {
+				font-size: 0.7em;
+			}
+		
+			#ls_config #ls_config_partName_ok {
+				float: none;
+				position: absolute;
+				right: 0px;
+				top: 0px;
+				width: 30px;
+			}
+			#ls_config #ls_config_partInfo_field {
+				width: 100%;
+			}
+		#ls_config  #ls_config_container_right {
+			width: 25%;
+			padding: 5px 0px 0px 0px;
+		}
+		
+			#ls_config #ls_config_modInfo {
+				padding: 2px 0px 0px 10px;
+			}
+			
+			#ls_config #ls_config_button_modColor {
+				height: 40%;
+				margin: 9px 0px 0px;
+				padding: 4px 0px 0px 4px;
+			}
 	
 	
+}
+
+/* Additional styles for portrait mode 
+##################################################################################################*/ 
+
+
+/* Breakpoint 900px Portrait-Mode 
+-------------------------------*/ 
+@media (min-device-width: 0px) and (max-device-width: 900px) and (min-height: 700px) and (orientation: portrait) {
+
+	#ls_config #ls_select_container {
+		height: 45%;
+	}
+	
+	#ls_config #ls_config_container	 {
+		height: 140px;
+		font-size: 1em;
+	}
+	
+		#ls_config .ls_config_panel_colorButton {
+			padding: 8px 10px 0px;
+		}
+}
+
+
+
+
+/* Breakpoint 650px Portrait-Mode 700+ height
+-------------------------------------------*/
+@media (min-device-width: 0px) and (max-device-width: 650px) and (min-height: 700px) and (orientation: portrait) {
+
+	
+	#ls_config #ls_config_container {
+		height: 100px;
+		font-size: 0.9em;
+	}
+	
+	#ls_config #ls_select_inspect_description_content {
+		font-size: 0.9em;
+	}
+	
+	#ls_config #ls_select_inspect_ok_button_content h1 {
+		padding: 5% 0px 0px 0px;
+	}
+
+}
+
+/* Breakpoint 650px Portrait-Mode 600+ height
+-------------------------------------------*/
+@media (min-device-width: 0px) and (max-device-width: 650px) and (min-height: 600px) and (orientation: portrait) {
+
+	#ls_config #ls_select_inspect_description_content {
+		font-size: 0.9em;
+	}
+}
+
+/* Breakpoint 650px Portrait-Mode 700- height
+-------------------------------------------*/
+@media (min-device-width: 0px) and (max-device-width: 650px) and (min-height: 400px) and (max-height: 700px) and (orientation: portrait) {
+	
+	#ls_config #ls_select_inspect_leftPanel {
+		width: 100%;
+		height: 50%;
+	}
+	
+		#ls_config #ls_select_inspect_description_content {
+			width: calc(100% - 90px);
+		}
+	
+	#ls_config #ls_select_inspect_rightPanel {
+		width: 100%;
+		height: 50%;
+	}
+	
+		#ls_config #ls_select_inspect_modContainer {
+			height: 60%;
+			padding: 2% 5% 0 5%;
+		}
+		
+		#ls_config #ls_select_inspect_modColorContainer {
+			padding: 8px 5% 0 5%;
+		}
+	
+		#ls_config #ls_select_inspect_colorInnerContainer {
+			width: calc(100% - 120px);
+		}
+		
+			#ls_config #ls_select_inspect_modColorContainer .ls_select_inspect_colorItem {
+				width: 18%;
+			}
+		
+		#ls_config #ls_select_inspect_ok {
+			height: 25%;
+			margin: 0;
+		}
+		
+		#ls_config #ls_select_inspect_ok_button {
+			width: 100%;
+			height: 70%;
+		}
+
 }
