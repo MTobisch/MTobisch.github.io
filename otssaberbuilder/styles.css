@@ -559,8 +559,9 @@ body {
 		width: 140px;
 		margin: 0;
 		padding: 15 0 0 0;
-		font-size: 1.5em;
+		font-size: 1.4em;
 		font-weight: bold;
+		white-space: nowrap;
 		text-align: center;
 		color: #777;
 		background-color: orange;
