@@ -8,6 +8,7 @@ body {
 	margin: 0px;
 	background-color: slategray;
 	font-family: "Play";
+	font-size: 1em;
 }
 
 #wrapper {
@@ -178,9 +179,10 @@ body {
 	#ls_infoWindow-title {
 		height: 40%;
 		margin: 0px;
-		padding: 5px 5px 0px 10px;
+		padding: 5px 0px 0px 10px;
 		border-bottom: 2px solid #404040;
 		box-sizing: border-box;
+		font-size: 1.4em;
 	}
 
 	#ls_getParts_container {
@@ -823,9 +825,10 @@ body {
 				width: 190px;
 				height: 100%;
 				margin: 0;
-				padding: 5px 10px 0 10px;
+				padding: 5px 0px 0 0px;
 				box-sizing: border-box;
 				font-size: 1.5em;
+				text-align: center;
 				background-color: orange;
 			}
 			

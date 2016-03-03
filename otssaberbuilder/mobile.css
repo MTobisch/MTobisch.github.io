@@ -4,7 +4,7 @@
 /* Breakpoint 1600px 
 -------------------------*/ 
 
-@media (min-device-width: 1470px) and (max-device-width: 1600px) { 
+@media (max-width: 1600px) { 
 	
 	#ls_config .ls_title {
 		font-size: 1.0em;
@@ -15,7 +15,7 @@
 /* Breakpoint 1470px 
 -------------------------*/ 
 
-@media (min-device-width: 0px) and (max-device-width: 1470px) { 
+@media (max-width: 1470px) { 
 	
 	#ls_config .ls_title {
 		display: none;
@@ -25,7 +25,7 @@
 /* Breakpoint 1200px 
 -------------------------*/ 
 
-@media (min-device-width: 0px) and (max-device-width: 1200px) { 
+@media (max-width: 1200px) { 
 	
 	#ls_config .ls_title {
 		display: inline;
@@ -126,7 +126,7 @@
 
 /* Breakpoint 900px 
 -------------------------*/ 
-@media (min-device-width: 0px) and (max-device-width: 900px), (max-height: 500px) {
+@media (max-width: 900px), (max-height: 500px) {
 	
 	#ls_config #ls_canvas {
 		height: calc(100% - 42px);
@@ -328,7 +328,7 @@
 
 /* Breakpoint 650px 
 -------------------------*/ 
-@media (min-device-width: 0px) and (max-device-width: 650px) {
+@media (max-width: 650px) {
 	
 	#ls_config #ls_canvas {
 		height: calc(100% - 32px);
@@ -545,7 +545,7 @@
 
 /* Breakpoint 450px 
 -------------------------*/
-@media (min-device-width: 0px) and (max-device-width: 450px) {
+@media (max-width: 450px) {
 	
 	#ls_config #ls_modbutton {
 		width: 100%;
@@ -692,7 +692,7 @@
 
 /* Breakpoint 900px Portrait-Mode 
 -------------------------------*/ 
-@media (min-device-width: 0px) and (max-device-width: 900px) and (min-height: 700px) and (orientation: portrait) {
+@media (max-width: 900px) and (min-height: 700px) and (orientation: portrait) {
 
 	#ls_config #ls_select_container {
 		height: 45%;
@@ -713,7 +713,7 @@
 
 /* Breakpoint 650px Portrait-Mode 700+ height
 -------------------------------------------*/
-@media (min-device-width: 0px) and (max-device-width: 650px) and (min-height: 700px) and (orientation: portrait) {
+@media (max-width: 650px) and (min-height: 700px) and (orientation: portrait) {
 
 	
 	#ls_config #ls_config_container {
@@ -733,7 +733,7 @@
 
 /* Breakpoint 650px Portrait-Mode 600+ height
 -------------------------------------------*/
-@media (min-device-width: 0px) and (max-device-width: 650px) and (min-height: 600px) and (orientation: portrait) {
+@media (max-width: 650px) and (min-height: 600px) and (orientation: portrait) {
 
 	#ls_config #ls_select_inspect_description_content {
 		font-size: 0.9em;
@@ -742,7 +742,7 @@
 
 /* Breakpoint 650px Portrait-Mode 700- height
 -------------------------------------------*/
-@media (min-device-width: 0px) and (max-device-width: 650px) and (min-height: 400px) and (max-height: 700px) and (orientation: portrait) {
+@media (max-width: 650px) and (min-height: 400px) and (max-height: 700px) and (orientation: portrait) {
 	
 	#ls_config #ls_select_inspect_leftPanel {
 		width: 100%;
