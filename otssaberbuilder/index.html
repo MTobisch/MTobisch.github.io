@@ -1,27 +1,27 @@
-<html>
+<html>	
 	<!--
-	// Unofficial OTS Saber Configurator 1.0.1
+	// Unofficial OTS Saber Configurator 1.1.0
 	// by 2016 Marvin Tobisch
 	// facebook.com/marvin.tobisch
 	
-	// This tool lets you configure a LED saber from Ken Hampton's OTS lightsaber product line. Current features include:
-	// - Mix and match almost any saber parts in whatever order
-	// - Saber staff customization
+	// This tool lets you configure a LED saber from Ken Hampton's OTS lightsaber product line. Current features:
+	// - Mix and match any saber parts in whatever order
 	// - Modding the build on the fly
 	// - Zoom and Drag options, including mobile pinch
-	// - Change background function
-	// - Current saber parts printed
-	// - Information about part count
-	
-	// As this is currently still a prototype, the following is still planned:
-	// - Add information about saber length, cost when available
-	// - Way to save builds
+	// - Ability to save and load builds
+	// - Builds directly saved in URL
 	// - Random lightsaber function
-	// - Flip saber feature?
+	// - Change background function
+	// - Saber parts printed
+	// - Info about part count
+	
+	// The following is still planned:
+	// - Add info about saber length and cost
+	// - Perhaps add TCSS parts
 	
 	// Note that this project is in no way officially associated with HHCLS or Ken Hampton and is a pure fan project to practice my web development skills. 
 	// I hope you have as much fan using this app as I had building it.
-	// May the force be with you!        
+	// May the force be with you!    
 	-->
 	
 	<head>
@@ -61,6 +61,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
 		<script src="analytics.js"></script>
+		<script src="cookiehandler.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="jquery-ui/jquery-ui.min.js"></script>
 		<script src="jquery-ui-punch/jquery.ui.touch-punch.min.js"></script>
@@ -73,12 +74,12 @@
 		<div id="wrapper">
 			<div id="ls_config">
 				<div id="ls_menubar">
-					<h1 class="ls_title">Unofficial OTS Saber Configurator v1.0.1</h1>
+					<h1 class="ls_title">Unofficial OTS Saber Configurator v1.1.0</h1>
 					<div id="ls_infowindow">
 						<div id="ls_infowindow_innercontainer">
 							<div id="ls_infowindow_innercontainer_left">
-								<h2 id="ls_infoWindow-title">Build information</h2>	
-								<div id="ls_getParts_container"><div id="ls_getParts_button"><div id="ls_getParts_button_icon"></div><div id="ls_getParts_button_title">Get parts</div></div></div>
+								<h2 id="ls_infoWindow-title">Information</h2>	
+								<div id="ls_buildMenuDesktop"><div id="ls_buildMenuDesktop_button"><div id="ls_buildMenuDesktop_button_icon"></div><div id="ls_buildMenuDesktop_button_title">Build options...</div></div></div>
 							</div>
 							<div id="ls_infowindow_innercontainer_right">
 								<div id="ls_partsCount_container">
@@ -97,6 +98,8 @@
 						</div>
 						<div id="ls_infowindow_edge"><div></div></div>
 					</div>
+					
+					<div id="ls_buildMenuMobile">Build...</div>
 					
 					<div id="ls_infowindowMobile">
 						<h2 id="ls_partsCountMobile">
@@ -157,25 +160,39 @@
 							<div id="ls_preload_mods"></div>
 						</div>
 					</div>
-					<div id="ls_ui_container"></div>
-					<div id="ls_modbutton">
-						<div id="ls_modbutton_left" class="ls_modbutton_edge"><div></div></div>
-						<div id="ls_modbutton_center">
-							<span id="ls_modbutton_center_textset_large">Saber config</span>
-							<span id="ls_modbutton_center_textset_small">Config</span>
+					<div id="ls_ui_container">
+						<div id="ls_modbutton">
+							<div id="ls_modbutton_left" class="ls_modbutton_edge"><div></div></div>
+							<div id="ls_modbutton_center">
+								<span id="ls_modbutton_center_textset_large">Saber config</span>
+								<span id="ls_modbutton_center_textset_small">Config</span>
+							</div>
+							<div id="ls_modbutton_right" class="ls_modbutton_edge"><div></div></div>
+							<div id="ls_modbutton_backpanel">
+								<div id="ls_buttons">
+									<div id="ls_buttonsleft" class="ls_buttonpanel">
+										<a id="ls_buttonleft_plus"  class="ls_button" href="#" ></a>
+										<a id="ls_buttonleft_minus" class="ls_button" href="#" ></a>
+									</div>
+									<div id="ls_buttonsright" class="ls_buttonpanel">
+										<a id="ls_buttonright_minus" class="ls_button" href="#" ></a>
+										<a id="ls_buttonright_plus" class="ls_button" href="#" ></a>
+									</div>
+								</div>	
+							</div>
 						</div>
-						<div id="ls_modbutton_right" class="ls_modbutton_edge"><div></div></div>
-						<div id="ls_modbutton_backpanel">
-							<div id="ls_buttons">
-								<div id="ls_buttonsleft" class="ls_buttonpanel">
-									<a id="ls_buttonleft_plus"  class="ls_button" href="#" ></a>
-									<a id="ls_buttonleft_minus" class="ls_button" href="#" ></a>
+						<div id="ls_randomizeUi">
+							<div id="ls_randomizeUi_center">
+								<div id="ls_randomizeUi_text">
+									<div id="ls_randomizeUi_icon"></div>
+									<p>Randomize!</p>
 								</div>
-								<div id="ls_buttonsright" class="ls_buttonpanel">
-									<a id="ls_buttonright_minus" class="ls_button" href="#" ></a>
-									<a id="ls_buttonright_plus" class="ls_button" href="#" ></a>
-								</div>
-							</div>	
+							</div>
+							<div id="ls_randomizeUi_close">X</div>
+						</div>
+						<div id="ls_safeModeDisplay">
+							<div id="ls_safeModeDisplay_text">Safe Mode</div>
+							<div id="ls_safeModeDisplay_icon">On</div>
 						</div>
 					</div>
 				</div>
