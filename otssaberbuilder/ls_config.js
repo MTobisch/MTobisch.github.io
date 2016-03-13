@@ -2698,7 +2698,15 @@ jQuery(document).ready(function($){
 			
 			User_Interface_Mod.prototype.startConfig = function (part_id) {
 				// Preliminary checks
-				if (ui.select.selectionActive) { return; }
+				if (ui.select.selectionActive) { return; }	// Not allowed
+				if (ui.build.randomizeActive) { 						// Deactivate randomize
+					$("#ls_randomizeUi_center").unbind();
+					$("#ls_randomizeUi_close").unbind();
+					$("#ls_randomizeUi").hide();
+					$("#ls_modbutton").show();
+					$("#ls_randomizeUi_center").css("background-color", "#404040");
+					ui.build.randomizeActive = false;
+				}
 				
 				ui.mod.isConfigFinished();
 				ui.mod.moddingInProgress = true;
