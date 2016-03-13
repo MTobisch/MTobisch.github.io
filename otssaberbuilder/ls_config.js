@@ -1915,7 +1915,7 @@ jQuery(document).ready(function($){
 						    }
 						});
 						$("#ls_save_buildName").on('change keydown paste input', function() {  // If name changes, check if saber already exists. Change button text to warn user.			
-							if (isCookie($("#ls_save_buildName").val())) {
+							if (isCookie($("#ls_save_buildName").val().replace(" ","_"))) {
 								$("#ls_dialogue_button").text("Overwrite");
 							} else {
 								$("#ls_dialogue_button").text("Save");
