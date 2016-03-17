@@ -2636,6 +2636,7 @@ jQuery(document).ready(function($){
 			
 			User_Interface_Selection.prototype.acceptInspect = function() {
 				
+				// Get settings for selected part
 				var partColor = $("#ls_select_inspect_colorInnerContainer").find(".ls_select_inspect_selected").attr("id").replace("ls_select_inspect_partColor_", "");
 				for (var index = 0; index < ui.select.selectedPart.colors.length; index++) {
 					if (ui.select.selectedPart.colors[index] == partColor) {
@@ -2656,6 +2657,7 @@ jQuery(document).ready(function($){
 				}
 				ui.select.selectedPart.mod = mod;	
 				
+				// Close selection and hand over part
 				$("#ls_select_container").remove();				// Hide selection window
 			 	$("#ls_modbutton").show();
 				current_lightsaber.addPart(ui.select.selectedPart, ui.select.side);
@@ -3112,7 +3114,9 @@ jQuery(document).ready(function($){
 				if (current_lightsaber.currentBuild[partIndex].slip) {
 					var newBuild = current_lightsaber.currentBuild;
 					newBuild.splice(partIndex, 1);
+					var tempIdCount = current_lightsaber.idGenerator; // ID generator count should not reset to 0, otherwise multiple identical part_ids when adding something hereafter
 					ui.build.resetBuild(false);
+					current_lightsaber.idGenerator = tempIdCount;
 					ui.build.loadBuild(newBuild, false);
 					if (current_lightsaber.currentBuild.length > 0) {
 						if (current_lightsaber.currentBuild[partIndex-1]) {
