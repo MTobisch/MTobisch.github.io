@@ -2085,6 +2085,7 @@ jQuery(document).ready(function($){
 					ui.createWindowDialogue("save");
 				});
 				$("#ls_buildMenuMobile_loadBuild").on("click", function() {
+					if (ui.mod.moddingInProgress) { return; }
 					ui.createWindowDialogue("load");
 				});
 				$("#ls_buildMenuMobile_randomBuild").on("click", function() {
