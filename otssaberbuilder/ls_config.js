@@ -1,4 +1,4 @@
-// Unofficial OTS Saber Configurator 1.1.0
+// Unofficial OTS Saber Configurator 1.1.1
 // by 2016 Marvin Tobisch
 // facebook.com/marvin.tobisch
 	
