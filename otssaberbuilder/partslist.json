@@ -165,7 +165,7 @@
 		"leftClip": 187,
 		"rightClip": 788,
 		"modAttachment": "left",
-		"modOffset": 334,
+		"modOffset": 187,
 		"subCat": "Short",
 		"info": "The normal chassis without a crystal chamber. Make sure to add power and/or sound."
 	},
@@ -182,7 +182,7 @@
 		"leftClip": 187,
 		"rightClip": 1018,
 		"modAttachment": "left",
-		"modOffset": 334,
+		"modOffset": 187,
 		"subCat": "Long",
 		"info": "An advanved chassis with a crystal chamber. Make sure to add power and/or sound."
 	},

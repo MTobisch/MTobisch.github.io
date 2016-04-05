@@ -432,8 +432,17 @@ jQuery(document).ready(function($){
    						}
    					}
    				}
-		 		}			
-	 			
+		 		}
+		 		
+		 		for (var index = 0; index < qualifiedParts.length; index++) {
+		 			if (qualifiedParts[index].partType === "chassis" ) { // Add basic mod to chassis parts
+ 						qualifiedParts[index].mod = current_lightsaber.findQualifiedMods(qualifiedParts[index].partName)[0];
+ 						qualifiedParts[index].mod.activeColor = 0;
+ 						qualifiedParts[index].mod.id = "ls_mod_" + current_lightsaber.getNewId();
+					} 
+		 		}
+		 		
+		 			 			
 	 			return qualifiedParts;
 			}
 			
@@ -448,14 +457,16 @@ jQuery(document).ready(function($){
 						}
 					}
 				}
-				mods_array.unshift({
-					"modName": "no_mod",
-					"prettyName": "No Mod",
-					"modType": "none",
-					"img_url": "assets/cross",
-					"colors": [""],
-					"parts": []
-				});
+				if (partName != "chassis_standard" && partName != "chassis_crystal") {
+					mods_array.unshift({
+						"modName": "no_mod",
+						"prettyName": "No Mod",
+						"modType": "none",
+						"img_url": "assets/cross",
+						"colors": [""],
+						"parts": []
+					});
+				}
 				return mods_array;
 			}
 			
@@ -863,6 +874,7 @@ jQuery(document).ready(function($){
 							$("#" + part_id + " .ls_imgcontainer_" + switchParts[index].partName).width(switchParts[index].partWidth*ui.getZoom());
 							$("#" + part_id + " .ls_imgcontainer_" + switchParts[index].partName).css("top","-1000px");
 							$("#" + part_id + " .ls_imgcontainer_" + switchParts[index].partName).find("img").addClass(switchParts[index].flip ? " ls_flip" : "");
+	
 							partsAbove++;
 						}
 						if (loop_pos === "after") {
@@ -874,7 +886,20 @@ jQuery(document).ready(function($){
 					} else {
 						loop_pos = "after";
 					}
-				}		
+					// Add mods
+					if (switchParts[index].mod != undefined && switchParts[index].mod !== "none" && switchParts[index].partName !== part.partName) { // Für Chassis-Basis-Mod. Wird schon bei findQualifiedParts() hinzugefügt.
+						$("#" + part_id + " .ls_imgcontainer_" + switchParts[index].partName).append("<img id='" + switchParts[index].mod.id + "' class='ls_mod ls_mod_"+ switchParts[index].mod.modName + (switchParts[index].flip ? " ls_flip" : "") +"'src='" + switchParts[index].mod.img_url + switchParts[index].mod.colors[switchParts[index].mod.activeColor] + ".png' >");		
+						// Position mod
+						if (switchParts[index].modAttachment == "left") {
+							$("#" + switchParts[index].mod.id).css("left", switchParts[index].modOffset*ui.getZoom());
+							$("#" + switchParts[index].mod.id).css("right", "auto");
+						}
+						if (switchParts[index].modAttachment == "right") {
+							$("#" + switchParts[index].mod.id).css("right", switchParts[index].modOffset*ui.getZoom());
+							$("#" + switchParts[index].mod.id).css("left", "auto");
+						}
+					}
+				}
 				
 				$("#" + part_id).unbind(); // Unbind open config doubleclick
 				
@@ -887,8 +912,8 @@ jQuery(document).ready(function($){
 				});
 				$("#" + part_id + " .ls_imgcontainer").not(".ls_config_active").addClass("ls_config_lowerCard"); 
 
-				
-				setTimeout(function() { // Animate parts swooping in
+				// Animate parts swooping in
+				setTimeout(function() { 
 					var distance = painter.mod.verticalDistance*ui.getZoom();	
 					$("#" + part_id + " > div").each(function() {
 						if ($(this).attr("id") !== "config_panel") {
@@ -1673,7 +1698,6 @@ jQuery(document).ready(function($){
 							foregripFound = true;
 							if ((testBuild[partIndex-1].rightConnector.length > 1 && !testBuild[partIndex-1].slip) ||
 									(testBuild[partIndex-2] && testBuild[partIndex-2].rightConnector.length > 1)) {
-								console.log("Test");
 								reargripForbidden = true;
 							}
 						}
@@ -1915,6 +1939,7 @@ jQuery(document).ready(function($){
 						    }
 						});
 						$("#ls_save_buildName").on('change keydown paste input', function() {  // If name changes, check if saber already exists. Change button text to warn user.			
+							console.log(($("#ls_save_buildName").val().replace(" ","_")));
 							if (isCookie($("#ls_save_buildName").val().replace(" ","_"))) {
 								$("#ls_dialogue_button").text("Overwrite");
 							} else {
@@ -2814,7 +2839,6 @@ jQuery(document).ready(function($){
 						var b = current_lightsaber.currentBuild;
 						if (!((b.length > 1 && (activePart.partType == "shroud" && (b[b.length-2].partType == "foregrip" || b[b.length-2].partType == "pommel" || b[b.length-2].partType == "connector"))) ||  // If shroud attached to silly part (foregrip, pommel, connector), don't allow to add blade (no chassis thus no blade holder)
 								  (b.length > 2 && (activePart.partType == "shroud" && b[b.length-2].slip && (b[b.length-3].partType == "foregrip" || b[b.length-3].partType == "pommel" || b[b.length-3].partType == "connector"))))) {
-							console.log("Test");
 							$(".config_global_rightPlus").show();
 						}
 					}
@@ -2834,10 +2858,9 @@ jQuery(document).ready(function($){
 				$("#ls_config_container #ls_config_partInfo_field").text(activePart.info);     																										// Description		
 				 																										
 				// Part flippable?
-				var foregripFlip = false;
+				var foregripFlip = false; // Without safe mode, foregrip flip often possible even if not the only part
 				if (!ui.safeMode && activePart.partType == "foregrip") {
 					foregripFlip = true;
-					console.log("Foregrip found");;
 					if (current_lightsaber.currentBuild[partInBuildIndex-1]) {
 						if (current_lightsaber.currentBuild[partInBuildIndex-1].partType === "chassis") {
 							foregripFlip = false;
@@ -3427,7 +3450,7 @@ jQuery(document).ready(function($){
 						chassisCount++;
 						randomPart.mod = mods[2];
 						randomPart.mod.id = "ls_mod_" + current_lightsaber.getNewId();
-						randomPart.mod.activeColor = 0;
+						randomPart.mod.activeColor = setPartColors[Math.floor(Math.random()*setPartColors.length)];
 					}
 					if (randomPart.slip) {
 						randomPart.mod = mods[Math.floor(Math.random()*(mods.length - 1) + 1)];
@@ -3516,8 +3539,6 @@ jQuery(document).ready(function($){
 				var partCount = current_lightsaber.currentBuild.length;
 				var price = "NYA";
 				cookieValue = identifier + seperator + buildID + seperator + dateString + seperator + partCount + seperator + price;
-				console.log(safeBuildName);
-				console.log(cookieValue);
 				setCookie(safeBuildName, cookieValue, 1825);
 			}
 			

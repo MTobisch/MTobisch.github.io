@@ -575,6 +575,6 @@
 		"modAttachment": "left",
 		"modOffset": 0,
 		"subCat": "Belt clip",
-		"info": "Adds a belt clip to your saber that can either be outfitted with a D-ring or a convertec knob."
+		"info": "Adds a belt clip to your saber with a D-ring or a convertec knob. (Currently limited to one per build)"
 	}
 }

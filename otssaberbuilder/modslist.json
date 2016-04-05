@@ -1,11 +1,20 @@
 {
+	"chassis_none": {
+		"modID" : "mc0",
+		"modName": "chassis_none",
+		"prettyName": "Basic",
+		"modType": "chassis",
+		"img_url": "models/mods/chassis/chassis_none_",
+		"colors": ["silver", "black", "red", "blue", "gold"],
+		"parts": ["chassis_standard", "chassis_crystal"]
+	},
 	"chassis_standard_power": {
 		"modID" : "mc1",
 		"modName": "chassis_standard_power",
 		"prettyName": "Power",
 		"modType": "chassis",
 		"img_url": "models/mods/chassis/chassis_standard_power_",
-		"colors": ["none"],
+		"colors": ["silver", "black", "red", "blue", "gold"],
 		"parts": ["chassis_standard"]
 	},
 	"chassis_standard_power_and_sound": {
@@ -14,7 +23,7 @@
 		"prettyName": "Power + Sound",
 		"modType": "chassis",
 		"img_url": "models/mods/chassis/chassis_standard_power_and_sound_",
-		"colors": ["none"],
+		"colors": ["silver", "black", "red", "blue", "gold"],
 		"parts": ["chassis_standard"]
 	},
 	"chassis_crystal_power": {
@@ -23,7 +32,7 @@
 		"prettyName": "Power",
 		"modType": "chassis",
 		"img_url": "models/mods/chassis/chassis_crystal_power_",
-		"colors": ["none"],
+		"colors": ["silver", "black", "red", "blue", "gold"],
 		"parts": ["chassis_crystal"]
 	},
 	"chassis_crystal_power_and_sound": {
@@ -32,7 +41,7 @@
 		"prettyName": "Power + Sound",
 		"modType": "chassis",
 		"img_url": "models/mods/chassis/chassis_crystal_power_and_sound_",
-		"colors": ["none"],
+		"colors": ["silver", "black", "red", "blue", "gold"],
 		"parts": ["chassis_crystal"]
 	},
 	"hiltcap_small": {
