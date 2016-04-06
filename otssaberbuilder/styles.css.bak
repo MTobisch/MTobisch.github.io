@@ -466,7 +466,7 @@ body {
 	#ls_menubutton_website_logo {
 		height: calc(100% - 60px);
 		width: 100%;
-		background-image: url("assets/kickstarter.png");
+		background-image: url("assets/indiegogo.png");
 		background-size: 85%;
 		background-repeat: no-repeat;
 		background-position: center;
@@ -525,7 +525,7 @@ body {
 	}
 		#ls_buildMenu .ls_buildMenu_infoItem {
 			height: 25px;
-			padding: 3px 0px 0px 20px;
+			padding: 4px 0px 0px 20px;
 			background-color: #404040;
 			color: orange;
 			cursor: auto;
@@ -552,7 +552,7 @@ body {
 			position: absolute;
 			top: 0px;
 			right: 0px;
-			padding: 3px 20px 0px 0px;
+			padding: 4px 20px 0px 0px;
 			box-sizing: border-box;
 			font-size: 1em;
 		}

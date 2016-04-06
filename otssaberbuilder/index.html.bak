@@ -1,6 +1,6 @@
 <html>	
 	<!--
-	// Unofficial OTS Saber Configurator 1.0.1
+	// Unofficial OTS Saber Configurator 1.1.1
 	// by 2016 Marvin Tobisch
 	// facebook.com/marvin.tobisch
 	
@@ -74,7 +74,7 @@
 		<div id="wrapper">
 			<div id="ls_config">
 				<div id="ls_menubar">
-					<h1 class="ls_title">Unofficial OTS Saber Configurator v1.0.1</h1>
+					<h1 class="ls_title">Unofficial OTS Saber Configurator v1.1.1</h1>
 					<div id="ls_infowindow">
 						<div id="ls_infowindow_innercontainer">
 							<div id="ls_infowindow_innercontainer_left">
@@ -121,7 +121,7 @@
 					
 					<div id="ls_menubutton-container">
 						<div id="ls_menubutton_website" class="ls_menubutton">
-							<div id="ls_menubutton_website_title">Visit the</div>
+							<div id="ls_menubutton_website_title">Predorder your parts on</div>
 							<div id="ls_menubutton_website_logo"></div>
 							<div class="ls_menubutton_bottom">
 								<div class="ls_menubutton_bottom_left"><div></div></div>

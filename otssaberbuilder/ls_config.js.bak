@@ -1,4 +1,4 @@
-// Unofficial OTS Saber Configurator 1.1.0
+// Unofficial OTS Saber Configurator 1.1.1
 // by 2016 Marvin Tobisch
 // facebook.com/marvin.tobisch
 	
@@ -1396,7 +1396,7 @@ jQuery(document).ready(function($){
 					// ui.build.loadBuild(ui.build.getBuildObjectFromId(ui.build.getUrlBuildId()));
 				});
 				this.buttons.buttonWebsite.on("click", function(e) {
-					window.open("http://www.kickstarter.com/projects/1023202441/ots-sabers-endless-customization-in-the-palm-of-yo/");
+					window.open("https://www.indiegogo.com/projects/ots-sabers-endless-customization#/");
 				});
 				this.buttons.buttonBuildMenuD.on("click", function(e) {
 					ui.openBuildMenu("desktop");
@@ -1939,6 +1939,7 @@ jQuery(document).ready(function($){
 						    }
 						});
 						$("#ls_save_buildName").on('change keydown paste input', function() {  // If name changes, check if saber already exists. Change button text to warn user.			
+							console.log(($("#ls_save_buildName").val().replace(" ","_")));
 							if (isCookie($("#ls_save_buildName").val().replace(" ","_"))) {
 								$("#ls_dialogue_button").text("Overwrite");
 							} else {
@@ -2156,9 +2157,9 @@ jQuery(document).ready(function($){
 							// ui.build.resetBuild();
 							// ui.build.loadBuild(ui.build.getBuildObjectFromId(ui.build.getUrlBuildId()));
 						});
-					$("#ls_mobile_menu_list").append("<div id='ls_mobile_menu_website' class='ls_mobile_menu_item'>Visit the Kickstarter</div>");
+					$("#ls_mobile_menu_list").append("<div id='ls_mobile_menu_website' class='ls_mobile_menu_item'>Preoder on Indiegogo</div>");
 						$("#ls_mobile_menu_website").on("click", function () {
-							window.open("http://www.kickstarter.com/projects/1023202441/ots-sabers-endless-customization-in-the-palm-of-yo/");
+							window.open("https://www.indiegogo.com/projects/ots-sabers-endless-customization#/");
 						});
 			
 				$("#ls_mobile_menu").addClass("ls_mobile_menu_open");

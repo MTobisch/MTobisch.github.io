@@ -1396,7 +1396,7 @@ jQuery(document).ready(function($){
 					// ui.build.loadBuild(ui.build.getBuildObjectFromId(ui.build.getUrlBuildId()));
 				});
 				this.buttons.buttonWebsite.on("click", function(e) {
-					window.open("http://www.kickstarter.com/projects/1023202441/ots-sabers-endless-customization-in-the-palm-of-yo/");
+					window.open("https://www.indiegogo.com/projects/ots-sabers-endless-customization#/");
 				});
 				this.buttons.buttonBuildMenuD.on("click", function(e) {
 					ui.openBuildMenu("desktop");
@@ -2157,9 +2157,9 @@ jQuery(document).ready(function($){
 							// ui.build.resetBuild();
 							// ui.build.loadBuild(ui.build.getBuildObjectFromId(ui.build.getUrlBuildId()));
 						});
-					$("#ls_mobile_menu_list").append("<div id='ls_mobile_menu_website' class='ls_mobile_menu_item'>Visit the Kickstarter</div>");
+					$("#ls_mobile_menu_list").append("<div id='ls_mobile_menu_website' class='ls_mobile_menu_item'>Preoder at Indiegogo</div>");
 						$("#ls_mobile_menu_website").on("click", function () {
-							window.open("http://www.kickstarter.com/projects/1023202441/ots-sabers-endless-customization-in-the-palm-of-yo/");
+							window.open("https://www.indiegogo.com/projects/ots-sabers-endless-customization#/");
 						});
 			
 				$("#ls_mobile_menu").addClass("ls_mobile_menu_open");

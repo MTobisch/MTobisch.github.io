@@ -466,10 +466,10 @@ body {
 	#ls_menubutton_website_logo {
 		height: calc(100% - 60px);
 		width: 100%;
-		background-image: url("assets/kickstarter.png");
+		background-image: url("assets/indiegogo.png");
 		background-size: 85%;
 		background-repeat: no-repeat;
-		background-position: center;
+		background-position: center 10px;
 		background-color: orange;
 		border-left: 2px solid black;
 		border-right: 2px solid black;
