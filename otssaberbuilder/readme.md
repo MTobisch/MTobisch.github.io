@@ -1,6 +1,4 @@
 Unofficial OTS Saber Configurator 1.1.1
-by 2016 Marvin Tobisch
-facebook.com/marvin.tobisch
 
 To start the tool, visit: mtobisch.github.io/otssaberbuilder
 	
@@ -21,4 +19,7 @@ The following is still planned:
 	
 Note that this project is in no way officially associated with HHCLS or Ken Hampton and is a pure fan project to practice my web development skills. 
 I hope you have as much fan using this app as I had building it.
+
 May the force be with you! 
+by 2016 Marvin Tobisch
+facebook.com/marvin.tobisch
