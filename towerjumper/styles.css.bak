@@ -1,0 +1,39 @@
+/* 1. General */
+/* --------------------------------------------------------------------------------- */
+
+body {
+	height: 100%;
+	margin: 0px;
+	background-color: slategray;
+	font-size: 1em;
+}
+
+#my2djumper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+#camera {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	transform: translateY(-50%);
+	width: 1500px;
+	height: 800px;
+	border: 2px solid white;
+	overflow: hidden;
+	background: url("background.png");
+	background-size: contain;
+}
+
+#gamespace {
+	position: absolute;
+	background-color: beige;
+}
+
+.object {
+	position: absolute;
+}
